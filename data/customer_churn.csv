@@ -1,0 +1,1001 @@
+Customer_ID,Gender,Age,Tenure,Subscription_Type,Monthly_Charges,Total_Spend,Last_Interaction_Days,Feedback,Sentiment,Churn
+C001,Female,54,2,Standard,499,998,18,Unresponsive customer support,0.0,No
+C002,Female,47,32,Basic,899,28768,9,Unhappy with delay in response,-0.6,No
+C003,Female,60,19,Basic,799,15181,13,Unresponsive customer support,0.0,No
+C004,Male,53,15,Basic,699,10485,27,Average experience,-0.15,Yes
+C005,Female,27,48,Standard,799,38352,23,Unresponsive customer support,0.0,No
+C006,Male,33,3,Basic,899,2697,20,Happy with service,0.8,No
+C007,Female,34,4,Premium,399,1596,7,Unhappy with delay in response,-0.6,No
+C008,Female,36,8,Premium,899,7192,28,Happy with service,0.8,No
+C009,Male,51,4,Basic,899,3596,30,Happy with service,0.8,Yes
+C010,Male,33,38,Premium,899,34162,23,Unresponsive customer support,0.0,No
+C011,Female,35,35,Standard,899,31465,13,Quick issue resolution,0.33,No
+C012,Male,62,30,Basic,499,14970,9,Unhappy with delay in response,-0.6,No
+C013,Male,56,3,Standard,499,1497,29,Good overall experience,0.35,Yes
+C014,Female,61,33,Basic,899,29667,19,Support team is great and helpful,0.8,Yes
+C015,Male,36,8,Basic,399,3192,1,Unhappy with delay in response,-0.6,No
+C016,Male,57,34,Premium,899,30566,15,Not happy with service delay,-0.4,No
+C017,Male,54,7,Premium,899,6293,13,Support team is great and helpful,0.8,Yes
+C018,Male,31,22,Standard,699,15378,11,Very satisfied with subscription,0.65,No
+C019,Male,34,40,Basic,999,39960,10,Support team is great and helpful,0.8,Yes
+C020,Female,60,28,Premium,599,16772,3,Unhappy with delay in response,-0.6,No
+C021,Male,25,42,Standard,799,33558,1,Not worth the price,-0.15,No
+C022,Male,44,38,Basic,599,22762,28,Unresponsive customer support,0.0,Yes
+C023,Female,46,3,Premium,699,2097,13,Support team is great and helpful,0.8,Yes
+C024,Male,28,40,Premium,899,35960,5,Happy with service,0.8,Yes
+C025,Female,37,3,Basic,899,2697,27,Happy with service,0.8,No
+C026,Female,25,8,Premium,599,4792,1,Not happy with service delay,-0.4,No
+C027,Female,36,32,Premium,999,31968,9,Quick issue resolution,0.33,Yes
+C028,Male,56,42,Premium,599,25158,2,Very satisfied with subscription,0.65,No
+C029,Male,51,23,Premium,899,20677,17,Good support but sometimes slow,0.2,Yes
+C030,Male,42,26,Basic,999,25974,8,Happy with service,0.8,Yes
+C031,Female,39,28,Premium,499,13972,23,Good support but sometimes slow,0.2,Yes
+C032,Female,62,16,Premium,499,7984,21,Happy with service,0.8,Yes
+C033,Male,44,22,Premium,399,8778,1,Support team is great and helpful,0.8,Yes
+C034,Male,41,6,Standard,599,3594,18,Very loyal customer,0.43,No
+C035,Male,64,29,Standard,399,11571,9,Unhappy with delay in response,-0.6,Yes
+C036,Female,42,23,Standard,499,11477,20,Happy with service,0.8,Yes
+C037,Male,51,8,Premium,399,3192,8,Not worth the price,-0.15,No
+C038,Female,31,35,Premium,699,24465,22,Not happy with service delay,-0.4,No
+C039,Male,48,17,Premium,699,11883,16,Good support but sometimes slow,0.2,Yes
+C040,Female,33,22,Standard,499,10978,20,Not happy with service delay,-0.4,Yes
+C041,Female,55,4,Standard,699,2796,22,Frequent connectivity issues,0.1,Yes
+C042,Female,50,32,Premium,999,31968,22,Not worth the price,-0.15,No
+C043,Male,46,18,Standard,399,7182,27,Frequent connectivity issues,0.1,No
+C044,Female,57,33,Standard,899,29667,1,Unresponsive customer support,0.0,Yes
+C045,Male,33,35,Basic,499,17465,18,Very satisfied with subscription,0.65,Yes
+C046,Male,61,13,Basic,899,11687,27,Connectivity issues frequently,0.1,Yes
+C047,Female,50,20,Standard,399,7980,16,Very satisfied with subscription,0.65,No
+C048,Female,64,28,Basic,599,16772,22,Not worth the price,-0.15,No
+C049,Male,47,9,Basic,599,5391,26,Unhappy with delay in response,-0.6,No
+C050,Female,60,34,Basic,599,20366,26,Good support but sometimes slow,0.2,Yes
+C051,Female,48,26,Standard,999,25974,3,Unhappy with delay in response,-0.6,Yes
+C052,Male,32,47,Premium,699,32853,19,Not happy with service delay,-0.4,No
+C053,Female,36,37,Standard,699,25863,21,Not worth the price,-0.15,Yes
+C054,Male,27,33,Premium,899,29667,12,Very loyal customer,0.43,No
+C055,Male,22,3,Standard,699,2097,29,Excellent service and quick response,0.67,No
+C056,Male,40,35,Premium,799,27965,6,Poor quality of service and support,-0.4,No
+C057,Male,40,29,Basic,999,28971,28,Poor quality of service and support,-0.4,Yes
+C058,Male,22,9,Basic,599,5391,19,Average experience,-0.15,Yes
+C059,Male,55,36,Basic,999,35964,9,Quick issue resolution,0.33,No
+C060,Female,58,39,Standard,699,27261,19,Very satisfied with subscription,0.65,Yes
+C061,Female,38,18,Premium,599,10782,5,Very loyal customer,0.43,No
+C062,Male,35,27,Basic,699,18873,8,Average experience,-0.15,Yes
+C063,Male,45,46,Premium,899,41354,12,Very satisfied with subscription,0.65,No
+C064,Male,19,31,Standard,999,30969,1,Connectivity issues frequently,0.1,Yes
+C065,Male,25,35,Standard,599,20965,21,Poor quality of service and support,-0.4,Yes
+C066,Female,39,12,Premium,499,5988,8,Good support but sometimes slow,0.2,Yes
+C067,Male,42,46,Premium,599,27554,27,Very loyal customer,0.43,No
+C068,Male,50,4,Premium,699,2796,14,Very satisfied with subscription,0.65,Yes
+C069,Female,25,23,Standard,399,9177,19,Good overall experience,0.35,No
+C070,Male,65,23,Premium,899,20677,17,Poor quality of service and support,-0.4,No
+C071,Female,64,7,Basic,999,6993,14,Happy with service,0.8,Yes
+C072,Female,51,19,Standard,499,9481,10,Happy with service,0.8,No
+C073,Male,21,45,Basic,499,22455,24,Not worth the price,-0.15,No
+C074,Female,24,3,Standard,999,2997,13,Good support but sometimes slow,0.2,Yes
+C075,Female,60,34,Standard,499,16966,13,Good overall experience,0.35,No
+C076,Male,32,48,Basic,499,23952,22,Poor quality of service and support,-0.4,Yes
+C077,Female,55,7,Standard,499,3493,23,Connectivity issues frequently,0.1,No
+C078,Male,34,13,Standard,399,5187,23,Unresponsive customer support,0.0,No
+C079,Female,65,42,Standard,399,16758,10,Support team is great and helpful,0.8,No
+C080,Male,33,36,Basic,399,14364,8,Poor quality of service and support,-0.4,Yes
+C081,Male,26,16,Standard,599,9584,18,Poor quality of service and support,-0.4,Yes
+C082,Female,65,38,Standard,999,37962,2,Quick issue resolution,0.33,No
+C083,Male,62,34,Standard,799,27166,11,Frequent connectivity issues,0.1,No
+C084,Female,18,26,Premium,599,15574,22,Not happy with service delay,-0.4,No
+C085,Male,35,28,Standard,399,11172,2,Very satisfied with subscription,0.65,Yes
+C086,Female,50,1,Standard,699,699,13,Good support but sometimes slow,0.2,No
+C087,Female,45,31,Basic,599,18569,15,Happy with service,0.8,No
+C088,Male,18,4,Basic,699,2796,9,Frequent connectivity issues,0.1,Yes
+C089,Male,54,4,Basic,499,1996,13,Support team is great and helpful,0.8,Yes
+C090,Female,45,42,Premium,999,41958,7,Connectivity issues frequently,0.1,Yes
+C091,Female,42,28,Basic,499,13972,25,Good support but sometimes slow,0.2,No
+C092,Male,45,42,Standard,699,29358,15,Not worth the price,-0.15,Yes
+C093,Male,44,1,Premium,899,899,15,Unhappy with delay in response,-0.6,No
+C094,Female,27,31,Basic,799,24769,2,Very loyal customer,0.43,Yes
+C095,Female,18,37,Basic,599,22163,24,Connectivity issues frequently,0.1,No
+C096,Female,22,33,Premium,799,26367,9,Poor quality of service and support,-0.4,No
+C097,Female,41,33,Premium,699,23067,26,Support team is great and helpful,0.8,Yes
+C098,Female,22,23,Premium,599,13777,23,Poor quality of service and support,-0.4,No
+C099,Female,20,7,Premium,399,2793,3,Frequent connectivity issues,0.1,Yes
+C100,Female,21,11,Standard,699,7689,23,Unhappy with delay in response,-0.6,No
+C101,Female,23,18,Standard,499,8982,11,Unhappy with delay in response,-0.6,No
+C102,Male,25,38,Basic,999,37962,25,Quick issue resolution,0.33,No
+C103,Female,53,41,Premium,799,32759,3,Connectivity issues frequently,0.1,No
+C104,Female,45,6,Standard,599,3594,7,Good support but sometimes slow,0.2,Yes
+C105,Female,22,22,Standard,799,17578,2,Excellent service and quick response,0.67,No
+C106,Female,43,7,Basic,699,4893,18,Happy with service,0.8,No
+C107,Female,26,7,Standard,799,5593,9,Happy with service,0.8,No
+C108,Male,59,29,Premium,999,28971,22,Excellent service and quick response,0.67,No
+C109,Female,25,15,Premium,899,13485,19,Poor quality of service and support,-0.4,No
+C110,Female,27,47,Basic,799,37553,7,Very loyal customer,0.43,No
+C111,Female,31,32,Basic,699,22368,15,Not worth the price,-0.15,No
+C112,Female,28,27,Basic,999,26973,20,Good support but sometimes slow,0.2,Yes
+C113,Male,62,48,Premium,699,33552,13,Unhappy with delay in response,-0.6,Yes
+C114,Female,57,42,Standard,399,16758,21,Poor quality of service and support,-0.4,No
+C115,Female,24,39,Premium,999,38961,19,Connectivity issues frequently,0.1,Yes
+C116,Female,49,28,Basic,499,13972,13,Not worth the price,-0.15,Yes
+C117,Male,27,42,Premium,499,20958,3,Happy with service,0.8,No
+C118,Female,25,44,Standard,899,39556,17,Not worth the price,-0.15,No
+C119,Male,56,35,Standard,399,13965,18,Happy with service,0.8,No
+C120,Male,22,13,Basic,599,7787,13,Unresponsive customer support,0.0,No
+C121,Female,33,7,Standard,699,4893,29,Good overall experience,0.35,No
+C122,Male,35,37,Basic,599,22163,2,Excellent service and quick response,0.67,Yes
+C123,Female,18,33,Premium,699,23067,1,Very loyal customer,0.43,Yes
+C124,Male,54,36,Premium,899,32364,12,Connectivity issues frequently,0.1,Yes
+C125,Male,60,26,Basic,799,20774,10,Good support but sometimes slow,0.2,Yes
+C126,Female,19,1,Standard,699,699,10,Support team is great and helpful,0.8,Yes
+C127,Male,56,25,Premium,699,17475,24,Very loyal customer,0.43,No
+C128,Female,21,15,Premium,599,8985,1,Very loyal customer,0.43,No
+C129,Female,33,15,Basic,499,7485,22,Support team is great and helpful,0.8,No
+C130,Female,26,46,Premium,699,32154,28,Excellent service and quick response,0.67,No
+C131,Male,52,9,Premium,799,7191,7,Happy with service,0.8,No
+C132,Female,48,7,Standard,899,6293,18,Frequent connectivity issues,0.1,No
+C133,Male,23,35,Standard,899,31465,17,Frequent connectivity issues,0.1,Yes
+C134,Female,62,44,Standard,999,43956,5,Connectivity issues frequently,0.1,Yes
+C135,Male,36,35,Basic,699,24465,30,Good overall experience,0.35,Yes
+C136,Male,31,28,Basic,699,19572,9,Happy with service,0.8,No
+C137,Male,29,18,Basic,799,14382,21,Happy with service,0.8,No
+C138,Male,47,15,Standard,399,5985,7,Unhappy with delay in response,-0.6,No
+C139,Male,32,5,Premium,399,1995,5,Poor quality of service and support,-0.4,No
+C140,Male,44,38,Premium,699,26562,30,Frequent connectivity issues,0.1,No
+C141,Female,41,43,Basic,499,21457,6,Average experience,-0.15,Yes
+C142,Male,59,14,Standard,599,8386,26,Good support but sometimes slow,0.2,No
+C143,Female,22,23,Standard,499,11477,2,Poor quality of service and support,-0.4,Yes
+C144,Female,37,22,Basic,699,15378,3,Good overall experience,0.35,Yes
+C145,Female,45,29,Standard,599,17371,22,Not worth the price,-0.15,Yes
+C146,Female,19,47,Basic,899,42253,13,Unresponsive customer support,0.0,Yes
+C147,Male,19,39,Basic,799,31161,17,Excellent service and quick response,0.67,No
+C148,Female,46,30,Basic,799,23970,16,Not worth the price,-0.15,No
+C149,Male,64,26,Premium,799,20774,6,Average experience,-0.15,No
+C150,Male,25,32,Premium,799,25568,6,Unhappy with delay in response,-0.6,No
+C151,Male,36,1,Standard,999,999,19,Unhappy with delay in response,-0.6,No
+C152,Male,49,7,Standard,499,3493,21,Frequent connectivity issues,0.1,Yes
+C153,Male,50,44,Basic,399,17556,22,Average experience,-0.15,No
+C154,Male,35,31,Basic,499,15469,29,Very loyal customer,0.43,Yes
+C155,Female,48,12,Standard,499,5988,13,Frequent connectivity issues,0.1,No
+C156,Female,24,5,Standard,599,2995,2,Connectivity issues frequently,0.1,Yes
+C157,Male,60,43,Standard,499,21457,20,Unresponsive customer support,0.0,Yes
+C158,Male,47,44,Basic,899,39556,23,Not happy with service delay,-0.4,Yes
+C159,Female,54,8,Standard,799,6392,12,Quick issue resolution,0.33,Yes
+C160,Male,22,9,Basic,399,3591,30,Frequent connectivity issues,0.1,No
+C161,Male,39,15,Standard,399,5985,10,Average experience,-0.15,No
+C162,Male,36,11,Premium,599,6589,3,Very satisfied with subscription,0.65,No
+C163,Male,52,2,Standard,899,1798,17,Happy with service,0.8,Yes
+C164,Male,57,10,Basic,499,4990,15,Very loyal customer,0.43,Yes
+C165,Male,18,27,Premium,799,21573,9,Not worth the price,-0.15,Yes
+C166,Female,29,27,Premium,399,10773,2,Not worth the price,-0.15,Yes
+C167,Female,65,24,Standard,699,16776,12,Connectivity issues frequently,0.1,Yes
+C168,Female,36,3,Standard,799,2397,9,Good overall experience,0.35,Yes
+C169,Male,47,43,Standard,399,17157,15,Average experience,-0.15,No
+C170,Female,30,23,Standard,999,22977,2,Good overall experience,0.35,No
+C171,Male,37,9,Basic,899,8091,13,Happy with service,0.8,Yes
+C172,Female,28,24,Premium,499,11976,15,Very satisfied with subscription,0.65,Yes
+C173,Male,40,32,Premium,499,15968,14,Unhappy with delay in response,-0.6,Yes
+C174,Female,65,30,Standard,499,14970,25,Unresponsive customer support,0.0,No
+C175,Male,64,9,Basic,799,7191,25,Not worth the price,-0.15,No
+C176,Male,43,48,Premium,899,43152,22,Excellent service and quick response,0.67,No
+C177,Female,33,9,Premium,699,6291,13,Average experience,-0.15,No
+C178,Male,25,4,Premium,499,1996,27,Frequent connectivity issues,0.1,No
+C179,Male,39,23,Premium,799,18377,19,Unresponsive customer support,0.0,Yes
+C180,Female,56,37,Basic,899,33263,9,Poor quality of service and support,-0.4,Yes
+C181,Male,20,43,Standard,399,17157,8,Unhappy with delay in response,-0.6,No
+C182,Female,45,37,Standard,899,33263,30,Not worth the price,-0.15,Yes
+C183,Female,56,22,Standard,899,19778,4,Not happy with service delay,-0.4,No
+C184,Male,29,35,Premium,999,34965,26,Poor quality of service and support,-0.4,No
+C185,Male,25,37,Basic,999,36963,6,Good overall experience,0.35,No
+C186,Female,24,43,Premium,599,25757,29,Excellent service and quick response,0.67,Yes
+C187,Male,51,21,Standard,799,16779,6,Happy with service,0.8,Yes
+C188,Female,53,2,Premium,799,1598,24,Very satisfied with subscription,0.65,Yes
+C189,Female,57,13,Basic,699,9087,7,Not worth the price,-0.15,No
+C190,Female,41,19,Basic,499,9481,30,Frequent connectivity issues,0.1,Yes
+C191,Male,59,43,Standard,599,25757,23,Excellent service and quick response,0.67,No
+C192,Male,18,22,Basic,599,13178,2,Very loyal customer,0.43,No
+C193,Male,65,43,Standard,399,17157,18,Very satisfied with subscription,0.65,Yes
+C194,Female,18,48,Standard,599,28752,22,Happy with service,0.8,No
+C195,Female,59,39,Standard,799,31161,20,Very loyal customer,0.43,No
+C196,Female,58,30,Standard,599,17970,12,Not happy with service delay,-0.4,Yes
+C197,Male,39,27,Premium,599,16173,9,Average experience,-0.15,Yes
+C198,Male,23,47,Premium,899,42253,1,Not happy with service delay,-0.4,No
+C199,Male,18,43,Standard,599,25757,29,Very satisfied with subscription,0.65,No
+C200,Male,21,36,Basic,499,17964,7,Connectivity issues frequently,0.1,No
+C201,Male,52,4,Premium,799,3196,29,Not happy with service delay,-0.4,Yes
+C202,Female,28,35,Premium,999,34965,19,Not worth the price,-0.15,Yes
+C203,Female,63,44,Standard,399,17556,2,Very satisfied with subscription,0.65,No
+C204,Female,34,44,Premium,499,21956,9,Happy with service,0.8,Yes
+C205,Male,18,40,Premium,799,31960,10,Frequent connectivity issues,0.1,No
+C206,Female,37,3,Standard,799,2397,23,Average experience,-0.15,Yes
+C207,Female,20,28,Standard,999,27972,15,Happy with service,0.8,Yes
+C208,Female,47,36,Premium,699,25164,11,Very satisfied with subscription,0.65,No
+C209,Male,40,34,Basic,599,20366,17,Average experience,-0.15,Yes
+C210,Male,52,6,Basic,399,2394,7,Unresponsive customer support,0.0,No
+C211,Female,58,14,Premium,699,9786,18,Happy with service,0.8,No
+C212,Male,56,21,Basic,599,12579,4,Good overall experience,0.35,Yes
+C213,Female,38,47,Basic,599,28153,6,Frequent connectivity issues,0.1,No
+C214,Male,32,9,Premium,599,5391,24,Quick issue resolution,0.33,Yes
+C215,Female,27,1,Basic,899,899,30,Quick issue resolution,0.33,No
+C216,Male,33,16,Basic,899,14384,30,Happy with service,0.8,Yes
+C217,Male,31,28,Basic,399,11172,12,Not happy with service delay,-0.4,Yes
+C218,Female,57,14,Standard,799,11186,25,Good overall experience,0.35,No
+C219,Male,27,41,Standard,399,16359,12,Very loyal customer,0.43,Yes
+C220,Female,37,4,Basic,799,3196,28,Quick issue resolution,0.33,Yes
+C221,Female,20,40,Basic,999,39960,24,Unresponsive customer support,0.0,No
+C222,Male,44,12,Basic,999,11988,23,Excellent service and quick response,0.67,No
+C223,Male,57,10,Basic,999,9990,21,Quick issue resolution,0.33,Yes
+C224,Male,58,38,Premium,599,22762,17,Very loyal customer,0.43,No
+C225,Male,40,35,Premium,399,13965,3,Poor quality of service and support,-0.4,Yes
+C226,Male,28,9,Premium,399,3591,21,Unhappy with delay in response,-0.6,Yes
+C227,Male,54,24,Premium,999,23976,13,Happy with service,0.8,Yes
+C228,Female,63,18,Basic,499,8982,11,Frequent connectivity issues,0.1,No
+C229,Male,62,33,Standard,799,26367,12,Happy with service,0.8,Yes
+C230,Female,37,8,Basic,999,7992,10,Average experience,-0.15,Yes
+C231,Male,20,14,Basic,999,13986,20,Not worth the price,-0.15,No
+C232,Female,35,8,Premium,599,4792,15,Good overall experience,0.35,Yes
+C233,Male,42,34,Basic,499,16966,25,Very satisfied with subscription,0.65,Yes
+C234,Male,34,15,Standard,699,10485,4,Good support but sometimes slow,0.2,Yes
+C235,Female,24,11,Basic,999,10989,25,Very satisfied with subscription,0.65,Yes
+C236,Male,26,12,Standard,799,9588,5,Poor quality of service and support,-0.4,No
+C237,Female,62,29,Standard,699,20271,28,Good support but sometimes slow,0.2,No
+C238,Male,52,42,Standard,499,20958,16,Quick issue resolution,0.33,No
+C239,Male,30,19,Basic,399,7581,17,Quick issue resolution,0.33,No
+C240,Male,30,47,Premium,699,32853,4,Not happy with service delay,-0.4,Yes
+C241,Male,18,22,Standard,699,15378,1,Happy with service,0.8,No
+C242,Male,24,46,Premium,699,32154,21,Unresponsive customer support,0.0,Yes
+C243,Female,32,17,Standard,899,15283,17,Good overall experience,0.35,No
+C244,Male,64,37,Basic,399,14763,14,Unresponsive customer support,0.0,No
+C245,Female,46,15,Standard,899,13485,27,Very satisfied with subscription,0.65,No
+C246,Male,47,38,Basic,899,34162,17,Average experience,-0.15,No
+C247,Male,34,20,Basic,699,13980,7,Support team is great and helpful,0.8,Yes
+C248,Female,44,20,Standard,799,15980,25,Good support but sometimes slow,0.2,Yes
+C249,Male,48,25,Premium,399,9975,16,Happy with service,0.8,No
+C250,Male,22,35,Basic,799,27965,9,Average experience,-0.15,No
+C251,Female,19,18,Premium,799,14382,7,Very loyal customer,0.43,No
+C252,Female,35,32,Basic,599,19168,15,Unhappy with delay in response,-0.6,Yes
+C253,Female,26,32,Standard,599,19168,23,Very satisfied with subscription,0.65,Yes
+C254,Female,35,20,Premium,799,15980,29,Not worth the price,-0.15,Yes
+C255,Female,60,27,Premium,399,10773,27,Excellent service and quick response,0.67,No
+C256,Female,64,44,Standard,999,43956,17,Unhappy with delay in response,-0.6,Yes
+C257,Male,26,37,Basic,499,18463,4,Excellent service and quick response,0.67,Yes
+C258,Male,22,46,Basic,799,36754,16,Not worth the price,-0.15,No
+C259,Female,27,4,Premium,999,3996,13,Very loyal customer,0.43,Yes
+C260,Male,43,41,Basic,499,20459,5,Very satisfied with subscription,0.65,No
+C261,Female,27,7,Premium,699,4893,20,Unhappy with delay in response,-0.6,Yes
+C262,Female,19,25,Standard,399,9975,27,Frequent connectivity issues,0.1,No
+C263,Male,42,9,Basic,599,5391,9,Good support but sometimes slow,0.2,No
+C264,Female,19,22,Standard,499,10978,11,Support team is great and helpful,0.8,Yes
+C265,Female,60,41,Standard,399,16359,27,Poor quality of service and support,-0.4,Yes
+C266,Male,55,11,Standard,699,7689,14,Not happy with service delay,-0.4,No
+C267,Female,60,20,Basic,599,11980,21,Unhappy with delay in response,-0.6,Yes
+C268,Male,56,26,Basic,699,18174,16,Not worth the price,-0.15,Yes
+C269,Male,27,9,Standard,999,8991,4,Poor quality of service and support,-0.4,No
+C270,Male,32,14,Basic,499,6986,18,Good overall experience,0.35,Yes
+C271,Male,55,23,Basic,699,16077,27,Very loyal customer,0.43,No
+C272,Male,41,41,Basic,699,28659,5,Frequent connectivity issues,0.1,No
+C273,Female,20,7,Basic,399,2793,15,Poor quality of service and support,-0.4,No
+C274,Male,51,1,Standard,999,999,15,Not happy with service delay,-0.4,No
+C275,Male,18,16,Premium,799,12784,24,Very loyal customer,0.43,Yes
+C276,Male,44,17,Standard,499,8483,6,Good support but sometimes slow,0.2,Yes
+C277,Male,51,1,Standard,799,799,25,Very satisfied with subscription,0.65,No
+C278,Female,35,39,Standard,499,19461,2,Quick issue resolution,0.33,Yes
+C279,Male,28,42,Premium,599,25158,30,Excellent service and quick response,0.67,No
+C280,Male,35,29,Standard,599,17371,7,Very satisfied with subscription,0.65,Yes
+C281,Female,40,38,Standard,599,22762,11,Good overall experience,0.35,No
+C282,Male,40,8,Standard,499,3992,21,Very satisfied with subscription,0.65,No
+C283,Male,58,15,Standard,399,5985,5,Unresponsive customer support,0.0,No
+C284,Male,49,47,Standard,499,23453,6,Very satisfied with subscription,0.65,Yes
+C285,Male,49,12,Standard,399,4788,10,Good overall experience,0.35,No
+C286,Male,36,14,Basic,499,6986,30,Good support but sometimes slow,0.2,Yes
+C287,Female,27,42,Basic,999,41958,29,Excellent service and quick response,0.67,Yes
+C288,Male,50,27,Standard,399,10773,6,Very satisfied with subscription,0.65,Yes
+C289,Female,44,22,Premium,899,19778,16,Unhappy with delay in response,-0.6,Yes
+C290,Male,25,21,Standard,699,14679,4,Good overall experience,0.35,No
+C291,Male,64,16,Standard,999,15984,9,Frequent connectivity issues,0.1,Yes
+C292,Female,51,21,Basic,799,16779,25,Good support but sometimes slow,0.2,Yes
+C293,Female,48,33,Basic,899,29667,28,Average experience,-0.15,No
+C294,Male,59,9,Standard,799,7191,12,Not worth the price,-0.15,No
+C295,Female,52,18,Basic,499,8982,30,Unhappy with delay in response,-0.6,No
+C296,Male,24,14,Basic,799,11186,15,Support team is great and helpful,0.8,Yes
+C297,Female,30,47,Premium,499,23453,9,Very loyal customer,0.43,Yes
+C298,Female,54,21,Premium,899,18879,28,Unresponsive customer support,0.0,Yes
+C299,Female,32,6,Standard,599,3594,30,Not happy with service delay,-0.4,No
+C300,Female,38,37,Premium,399,14763,11,Happy with service,0.8,Yes
+C301,Male,56,43,Standard,899,38657,20,Quick issue resolution,0.33,No
+C302,Female,21,35,Standard,999,34965,28,Quick issue resolution,0.33,No
+C303,Female,23,40,Standard,599,23960,29,Good overall experience,0.35,Yes
+C304,Male,54,7,Premium,399,2793,3,Very satisfied with subscription,0.65,Yes
+C305,Male,34,33,Standard,399,13167,16,Poor quality of service and support,-0.4,Yes
+C306,Female,25,15,Premium,699,10485,8,Unhappy with delay in response,-0.6,Yes
+C307,Male,24,46,Standard,799,36754,4,Frequent connectivity issues,0.1,Yes
+C308,Female,45,27,Standard,499,13473,27,Unhappy with delay in response,-0.6,No
+C309,Female,43,46,Standard,799,36754,14,Connectivity issues frequently,0.1,No
+C310,Male,38,1,Standard,599,599,27,Good overall experience,0.35,Yes
+C311,Female,43,31,Premium,699,21669,4,Excellent service and quick response,0.67,Yes
+C312,Female,20,17,Standard,799,13583,1,Quick issue resolution,0.33,Yes
+C313,Male,57,33,Basic,599,19767,27,Good overall experience,0.35,No
+C314,Male,26,44,Standard,799,35156,9,Not happy with service delay,-0.4,Yes
+C315,Male,65,18,Premium,499,8982,28,Good support but sometimes slow,0.2,No
+C316,Male,19,38,Basic,999,37962,11,Frequent connectivity issues,0.1,Yes
+C317,Female,34,35,Premium,899,31465,21,Support team is great and helpful,0.8,Yes
+C318,Male,35,47,Standard,799,37553,1,Not worth the price,-0.15,No
+C319,Male,64,25,Standard,999,24975,9,Excellent service and quick response,0.67,Yes
+C320,Male,34,32,Standard,999,31968,24,Not worth the price,-0.15,Yes
+C321,Male,63,14,Basic,499,6986,7,Connectivity issues frequently,0.1,Yes
+C322,Female,23,44,Premium,399,17556,25,Good overall experience,0.35,Yes
+C323,Female,35,9,Premium,899,8091,17,Frequent connectivity issues,0.1,Yes
+C324,Female,60,7,Basic,399,2793,17,Good support but sometimes slow,0.2,No
+C325,Male,28,38,Basic,399,15162,18,Unresponsive customer support,0.0,No
+C326,Male,27,47,Standard,999,46953,12,Not worth the price,-0.15,No
+C327,Male,56,28,Basic,999,27972,30,Frequent connectivity issues,0.1,No
+C328,Male,52,46,Basic,499,22954,18,Connectivity issues frequently,0.1,No
+C329,Male,54,1,Basic,699,699,15,Excellent service and quick response,0.67,No
+C330,Female,59,20,Basic,999,19980,4,Support team is great and helpful,0.8,No
+C331,Female,56,42,Premium,799,33558,7,Not happy with service delay,-0.4,Yes
+C332,Female,46,27,Basic,699,18873,21,Very loyal customer,0.43,No
+C333,Female,44,45,Standard,799,35955,2,Not worth the price,-0.15,Yes
+C334,Male,30,8,Premium,999,7992,6,Connectivity issues frequently,0.1,Yes
+C335,Male,60,30,Basic,399,11970,14,Happy with service,0.8,Yes
+C336,Male,63,35,Standard,999,34965,28,Unresponsive customer support,0.0,Yes
+C337,Female,54,23,Premium,999,22977,5,Good overall experience,0.35,Yes
+C338,Female,55,4,Basic,699,2796,20,Excellent service and quick response,0.67,Yes
+C339,Male,26,20,Standard,699,13980,4,Happy with service,0.8,Yes
+C340,Male,52,12,Standard,399,4788,11,Support team is great and helpful,0.8,No
+C341,Male,57,3,Basic,399,1197,18,Average experience,-0.15,No
+C342,Female,57,20,Basic,499,9980,16,Unhappy with delay in response,-0.6,Yes
+C343,Female,50,33,Standard,899,29667,22,Very satisfied with subscription,0.65,Yes
+C344,Female,44,5,Basic,999,4995,28,Average experience,-0.15,Yes
+C345,Female,61,3,Standard,399,1197,25,Happy with service,0.8,Yes
+C346,Female,38,15,Premium,899,13485,22,Poor quality of service and support,-0.4,No
+C347,Female,34,17,Premium,499,8483,18,Very loyal customer,0.43,Yes
+C348,Male,58,48,Standard,999,47952,11,Good overall experience,0.35,No
+C349,Female,42,29,Premium,999,28971,16,Quick issue resolution,0.33,No
+C350,Female,28,3,Standard,599,1797,7,Not worth the price,-0.15,No
+C351,Male,57,26,Premium,399,10374,24,Unhappy with delay in response,-0.6,Yes
+C352,Female,18,31,Basic,599,18569,28,Happy with service,0.8,No
+C353,Female,47,23,Premium,899,20677,2,Excellent service and quick response,0.67,No
+C354,Male,49,39,Basic,799,31161,4,Good overall experience,0.35,Yes
+C355,Female,36,5,Basic,699,3495,7,Not worth the price,-0.15,No
+C356,Female,43,29,Premium,799,23171,29,Support team is great and helpful,0.8,Yes
+C357,Male,62,17,Basic,399,6783,29,Not happy with service delay,-0.4,No
+C358,Male,51,35,Premium,899,31465,12,Good support but sometimes slow,0.2,Yes
+C359,Male,64,30,Standard,599,17970,16,Good overall experience,0.35,No
+C360,Male,21,13,Standard,999,12987,16,Support team is great and helpful,0.8,No
+C361,Female,25,9,Basic,599,5391,28,Frequent connectivity issues,0.1,Yes
+C362,Female,42,6,Standard,399,2394,15,Unhappy with delay in response,-0.6,Yes
+C363,Male,27,16,Premium,399,6384,19,Poor quality of service and support,-0.4,Yes
+C364,Female,41,45,Basic,999,44955,15,Not happy with service delay,-0.4,Yes
+C365,Female,20,9,Standard,899,8091,4,Unhappy with delay in response,-0.6,Yes
+C366,Female,60,39,Basic,699,27261,14,Average experience,-0.15,Yes
+C367,Male,63,18,Basic,599,10782,8,Connectivity issues frequently,0.1,Yes
+C368,Male,26,33,Standard,499,16467,19,Quick issue resolution,0.33,No
+C369,Male,49,43,Premium,899,38657,8,Poor quality of service and support,-0.4,Yes
+C370,Male,34,28,Premium,399,11172,18,Quick issue resolution,0.33,Yes
+C371,Female,33,47,Basic,799,37553,22,Not worth the price,-0.15,No
+C372,Female,45,6,Basic,499,2994,9,Support team is great and helpful,0.8,Yes
+C373,Male,22,46,Basic,599,27554,4,Connectivity issues frequently,0.1,No
+C374,Male,63,14,Basic,399,5586,20,Happy with service,0.8,No
+C375,Male,59,39,Premium,799,31161,15,Quick issue resolution,0.33,Yes
+C376,Female,50,47,Standard,499,23453,3,Very loyal customer,0.43,No
+C377,Female,52,9,Basic,499,4491,26,Support team is great and helpful,0.8,Yes
+C378,Male,24,36,Standard,999,35964,7,Excellent service and quick response,0.67,Yes
+C379,Male,48,34,Standard,499,16966,4,Frequent connectivity issues,0.1,Yes
+C380,Male,22,5,Premium,699,3495,27,Poor quality of service and support,-0.4,Yes
+C381,Male,54,2,Basic,999,1998,14,Very satisfied with subscription,0.65,Yes
+C382,Female,48,32,Premium,999,31968,20,Average experience,-0.15,No
+C383,Male,29,25,Premium,599,14975,4,Good support but sometimes slow,0.2,Yes
+C384,Female,55,3,Basic,999,2997,11,Poor quality of service and support,-0.4,Yes
+C385,Male,48,36,Basic,499,17964,12,Not worth the price,-0.15,No
+C386,Female,42,16,Standard,599,9584,23,Average experience,-0.15,No
+C387,Male,53,19,Standard,599,11381,2,Quick issue resolution,0.33,Yes
+C388,Male,39,31,Premium,999,30969,9,Quick issue resolution,0.33,No
+C389,Male,24,26,Premium,899,23374,22,Connectivity issues frequently,0.1,No
+C390,Male,64,1,Standard,499,499,27,Quick issue resolution,0.33,Yes
+C391,Female,24,23,Basic,399,9177,29,Unhappy with delay in response,-0.6,Yes
+C392,Male,22,21,Premium,599,12579,17,Poor quality of service and support,-0.4,No
+C393,Female,36,22,Basic,399,8778,20,Not happy with service delay,-0.4,Yes
+C394,Male,22,3,Basic,999,2997,20,Unresponsive customer support,0.0,No
+C395,Male,25,47,Basic,399,18753,29,Good support but sometimes slow,0.2,No
+C396,Female,18,40,Basic,999,39960,8,Support team is great and helpful,0.8,Yes
+C397,Female,62,12,Standard,999,11988,18,Quick issue resolution,0.33,Yes
+C398,Female,33,7,Standard,799,5593,28,Quick issue resolution,0.33,No
+C399,Female,51,13,Premium,899,11687,5,Unhappy with delay in response,-0.6,Yes
+C400,Male,40,43,Basic,899,38657,13,Not happy with service delay,-0.4,No
+C401,Female,49,41,Standard,999,40959,12,Good support but sometimes slow,0.2,Yes
+C402,Female,43,15,Standard,699,10485,22,Quick issue resolution,0.33,Yes
+C403,Male,30,7,Premium,799,5593,28,Not worth the price,-0.15,No
+C404,Female,65,34,Standard,499,16966,30,Frequent connectivity issues,0.1,Yes
+C405,Female,41,44,Standard,499,21956,5,Connectivity issues frequently,0.1,No
+C406,Male,43,25,Premium,599,14975,13,Support team is great and helpful,0.8,No
+C407,Male,32,32,Premium,599,19168,26,Average experience,-0.15,No
+C408,Male,38,22,Premium,799,17578,20,Very satisfied with subscription,0.65,No
+C409,Male,27,35,Basic,599,20965,27,Not worth the price,-0.15,No
+C410,Male,45,8,Basic,799,6392,27,Quick issue resolution,0.33,No
+C411,Female,30,32,Standard,699,22368,29,Good support but sometimes slow,0.2,No
+C412,Male,50,45,Premium,699,31455,20,Unresponsive customer support,0.0,No
+C413,Male,32,47,Basic,799,37553,14,Unresponsive customer support,0.0,No
+C414,Male,34,23,Basic,899,20677,9,Frequent connectivity issues,0.1,No
+C415,Female,21,16,Basic,399,6384,28,Good overall experience,0.35,Yes
+C416,Male,34,47,Standard,899,42253,19,Good overall experience,0.35,No
+C417,Male,50,1,Basic,899,899,1,Quick issue resolution,0.33,No
+C418,Male,64,40,Standard,899,35960,18,Good overall experience,0.35,No
+C419,Female,23,10,Basic,899,8990,1,Unhappy with delay in response,-0.6,Yes
+C420,Female,33,7,Basic,499,3493,28,Frequent connectivity issues,0.1,Yes
+C421,Male,37,9,Standard,899,8091,29,Unresponsive customer support,0.0,Yes
+C422,Male,20,11,Premium,499,5489,6,Happy with service,0.8,Yes
+C423,Male,60,32,Premium,399,12768,11,Quick issue resolution,0.33,No
+C424,Female,54,22,Basic,499,10978,30,Very satisfied with subscription,0.65,No
+C425,Female,39,23,Standard,599,13777,6,Frequent connectivity issues,0.1,Yes
+C426,Male,63,11,Premium,699,7689,25,Very satisfied with subscription,0.65,Yes
+C427,Male,46,14,Standard,699,9786,24,Average experience,-0.15,Yes
+C428,Male,59,21,Standard,499,10479,4,Average experience,-0.15,No
+C429,Male,57,19,Basic,699,13281,17,Not happy with service delay,-0.4,No
+C430,Male,65,36,Standard,899,32364,12,Good support but sometimes slow,0.2,Yes
+C431,Female,49,8,Basic,399,3192,27,Support team is great and helpful,0.8,No
+C432,Female,43,27,Premium,799,21573,22,Good support but sometimes slow,0.2,Yes
+C433,Female,39,37,Standard,899,33263,18,Very loyal customer,0.43,No
+C434,Male,19,48,Basic,999,47952,18,Very satisfied with subscription,0.65,Yes
+C435,Male,38,17,Premium,499,8483,13,Good overall experience,0.35,No
+C436,Female,44,46,Basic,899,41354,11,Good support but sometimes slow,0.2,No
+C437,Male,34,26,Premium,699,18174,1,Not worth the price,-0.15,No
+C438,Female,21,43,Premium,799,34357,4,Not worth the price,-0.15,Yes
+C439,Female,50,6,Standard,999,5994,17,Not worth the price,-0.15,Yes
+C440,Male,40,2,Premium,699,1398,25,Frequent connectivity issues,0.1,Yes
+C441,Male,64,40,Premium,599,23960,18,Connectivity issues frequently,0.1,Yes
+C442,Female,21,1,Basic,999,999,26,Not happy with service delay,-0.4,Yes
+C443,Female,41,13,Premium,999,12987,14,Connectivity issues frequently,0.1,Yes
+C444,Female,31,9,Basic,499,4491,20,Happy with service,0.8,Yes
+C445,Female,62,18,Premium,499,8982,29,Unhappy with delay in response,-0.6,No
+C446,Male,35,20,Premium,499,9980,7,Excellent service and quick response,0.67,Yes
+C447,Female,33,7,Premium,799,5593,11,Quick issue resolution,0.33,No
+C448,Female,44,33,Standard,999,32967,22,Unhappy with delay in response,-0.6,No
+C449,Male,33,42,Standard,999,41958,11,Average experience,-0.15,No
+C450,Male,47,3,Basic,699,2097,30,Excellent service and quick response,0.67,No
+C451,Male,32,1,Basic,999,999,19,Good overall experience,0.35,Yes
+C452,Male,38,2,Basic,499,998,19,Poor quality of service and support,-0.4,No
+C453,Male,22,37,Premium,599,22163,12,Not happy with service delay,-0.4,No
+C454,Male,30,14,Standard,899,12586,2,Average experience,-0.15,Yes
+C455,Male,58,43,Basic,999,42957,1,Connectivity issues frequently,0.1,Yes
+C456,Male,46,41,Basic,499,20459,10,Very satisfied with subscription,0.65,No
+C457,Female,46,38,Basic,599,22762,26,Support team is great and helpful,0.8,No
+C458,Male,23,37,Standard,799,29563,28,Good overall experience,0.35,No
+C459,Female,22,4,Basic,799,3196,16,Very loyal customer,0.43,No
+C460,Female,43,13,Standard,699,9087,30,Frequent connectivity issues,0.1,No
+C461,Male,26,8,Standard,899,7192,30,Not happy with service delay,-0.4,Yes
+C462,Male,22,15,Premium,699,10485,14,Poor quality of service and support,-0.4,Yes
+C463,Female,59,11,Premium,399,4389,3,Good overall experience,0.35,No
+C464,Male,29,22,Premium,899,19778,14,Not happy with service delay,-0.4,No
+C465,Female,25,28,Basic,399,11172,5,Poor quality of service and support,-0.4,No
+C466,Male,62,8,Standard,499,3992,30,Average experience,-0.15,No
+C467,Male,64,25,Standard,499,12475,12,Good overall experience,0.35,Yes
+C468,Male,42,32,Standard,899,28768,4,Very loyal customer,0.43,No
+C469,Male,65,17,Premium,899,15283,28,Connectivity issues frequently,0.1,No
+C470,Female,64,13,Premium,499,6487,15,Very satisfied with subscription,0.65,Yes
+C471,Female,30,24,Basic,899,21576,22,Poor quality of service and support,-0.4,Yes
+C472,Female,52,10,Basic,899,8990,3,Very loyal customer,0.43,No
+C473,Male,40,6,Premium,899,5394,21,Quick issue resolution,0.33,Yes
+C474,Male,37,22,Premium,799,17578,12,Average experience,-0.15,No
+C475,Female,24,19,Premium,399,7581,29,Not happy with service delay,-0.4,Yes
+C476,Female,22,21,Basic,499,10479,1,Good support but sometimes slow,0.2,No
+C477,Male,41,17,Basic,699,11883,20,Good overall experience,0.35,No
+C478,Female,28,5,Standard,699,3495,15,Support team is great and helpful,0.8,No
+C479,Male,32,23,Premium,899,20677,20,Quick issue resolution,0.33,No
+C480,Male,34,19,Basic,399,7581,8,Happy with service,0.8,No
+C481,Female,62,17,Standard,699,11883,3,Good overall experience,0.35,No
+C482,Male,45,39,Basic,499,19461,23,Not happy with service delay,-0.4,No
+C483,Female,56,32,Basic,599,19168,9,Not happy with service delay,-0.4,Yes
+C484,Female,25,30,Basic,599,17970,9,Happy with service,0.8,No
+C485,Female,61,4,Premium,899,3596,1,Unresponsive customer support,0.0,Yes
+C486,Male,27,28,Standard,499,13972,22,Good overall experience,0.35,Yes
+C487,Female,20,48,Premium,999,47952,23,Unhappy with delay in response,-0.6,No
+C488,Male,62,40,Standard,399,15960,7,Good support but sometimes slow,0.2,Yes
+C489,Male,53,38,Premium,799,30362,19,Very satisfied with subscription,0.65,No
+C490,Female,60,11,Premium,799,8789,27,Poor quality of service and support,-0.4,Yes
+C491,Male,18,26,Standard,899,23374,9,Quick issue resolution,0.33,No
+C492,Male,28,26,Basic,899,23374,7,Average experience,-0.15,Yes
+C493,Male,45,34,Standard,499,16966,22,Good support but sometimes slow,0.2,No
+C494,Female,42,11,Premium,499,5489,1,Poor quality of service and support,-0.4,No
+C495,Female,55,11,Premium,499,5489,22,Poor quality of service and support,-0.4,No
+C496,Female,52,15,Basic,699,10485,3,Not worth the price,-0.15,Yes
+C497,Female,58,39,Standard,599,23361,9,Frequent connectivity issues,0.1,Yes
+C498,Female,32,31,Basic,999,30969,5,Poor quality of service and support,-0.4,Yes
+C499,Male,31,19,Standard,699,13281,27,Frequent connectivity issues,0.1,Yes
+C500,Female,50,31,Basic,399,12369,20,Average experience,-0.15,No
+C501,Female,42,9,Basic,499,4491,30,Happy with service,0.8,Yes
+C502,Male,58,26,Standard,599,15574,18,Not happy with service delay,-0.4,No
+C503,Female,28,33,Premium,899,29667,15,Good support but sometimes slow,0.2,No
+C504,Female,54,18,Basic,399,7182,16,Good support but sometimes slow,0.2,No
+C505,Male,44,4,Premium,999,3996,23,Very satisfied with subscription,0.65,Yes
+C506,Male,27,35,Premium,799,27965,12,Excellent service and quick response,0.67,No
+C507,Male,49,29,Standard,599,17371,8,Very loyal customer,0.43,No
+C508,Female,32,36,Standard,799,28764,14,Poor quality of service and support,-0.4,Yes
+C509,Female,44,32,Premium,799,25568,1,Quick issue resolution,0.33,Yes
+C510,Male,22,7,Basic,699,4893,16,Good overall experience,0.35,No
+C511,Female,25,37,Basic,799,29563,27,Connectivity issues frequently,0.1,Yes
+C512,Male,52,10,Basic,499,4990,10,Connectivity issues frequently,0.1,Yes
+C513,Male,61,43,Premium,799,34357,24,Good overall experience,0.35,No
+C514,Female,48,17,Standard,999,16983,16,Frequent connectivity issues,0.1,No
+C515,Female,63,11,Standard,799,8789,13,Good overall experience,0.35,Yes
+C516,Female,46,48,Premium,499,23952,25,Not worth the price,-0.15,Yes
+C517,Male,34,24,Premium,399,9576,2,Good overall experience,0.35,No
+C518,Female,36,24,Basic,399,9576,23,Good support but sometimes slow,0.2,Yes
+C519,Female,42,25,Premium,699,17475,22,Good support but sometimes slow,0.2,No
+C520,Male,24,5,Premium,999,4995,28,Good support but sometimes slow,0.2,Yes
+C521,Female,46,40,Standard,599,23960,21,Happy with service,0.8,No
+C522,Female,43,18,Premium,599,10782,1,Very satisfied with subscription,0.65,Yes
+C523,Male,19,40,Premium,499,19960,18,Unresponsive customer support,0.0,Yes
+C524,Female,60,15,Premium,999,14985,10,Support team is great and helpful,0.8,Yes
+C525,Female,19,44,Standard,699,30756,27,Very satisfied with subscription,0.65,Yes
+C526,Female,30,25,Premium,699,17475,13,Not worth the price,-0.15,Yes
+C527,Female,41,41,Basic,899,36859,22,Not worth the price,-0.15,Yes
+C528,Female,29,10,Premium,799,7990,26,Unresponsive customer support,0.0,No
+C529,Male,23,11,Basic,599,6589,1,Very satisfied with subscription,0.65,Yes
+C530,Female,19,32,Standard,599,19168,26,Very satisfied with subscription,0.65,Yes
+C531,Female,22,4,Premium,499,1996,17,Connectivity issues frequently,0.1,Yes
+C532,Female,49,24,Premium,599,14376,16,Excellent service and quick response,0.67,No
+C533,Male,27,32,Basic,799,25568,14,Poor quality of service and support,-0.4,No
+C534,Male,63,6,Premium,899,5394,10,Average experience,-0.15,No
+C535,Female,19,28,Premium,799,22372,11,Quick issue resolution,0.33,Yes
+C536,Male,46,19,Basic,799,15181,13,Quick issue resolution,0.33,No
+C537,Male,30,40,Premium,699,27960,8,Good overall experience,0.35,Yes
+C538,Male,27,36,Premium,399,14364,19,Average experience,-0.15,Yes
+C539,Male,20,25,Standard,599,14975,16,Quick issue resolution,0.33,Yes
+C540,Male,22,29,Premium,699,20271,22,Average experience,-0.15,No
+C541,Male,57,28,Basic,499,13972,18,Very loyal customer,0.43,No
+C542,Male,62,36,Basic,699,25164,9,Unresponsive customer support,0.0,Yes
+C543,Male,21,11,Standard,899,9889,13,Connectivity issues frequently,0.1,Yes
+C544,Male,51,22,Basic,899,19778,11,Good overall experience,0.35,Yes
+C545,Male,45,15,Basic,599,8985,2,Excellent service and quick response,0.67,Yes
+C546,Female,31,30,Premium,599,17970,2,Unhappy with delay in response,-0.6,No
+C547,Female,44,26,Premium,599,15574,29,Connectivity issues frequently,0.1,Yes
+C548,Male,20,10,Standard,399,3990,21,Unresponsive customer support,0.0,Yes
+C549,Female,29,37,Standard,799,29563,27,Poor quality of service and support,-0.4,Yes
+C550,Male,26,25,Standard,399,9975,9,Very loyal customer,0.43,Yes
+C551,Male,24,20,Premium,699,13980,18,Very loyal customer,0.43,No
+C552,Female,28,37,Standard,399,14763,13,Happy with service,0.8,Yes
+C553,Male,44,31,Basic,799,24769,12,Connectivity issues frequently,0.1,Yes
+C554,Male,35,1,Premium,499,499,14,Excellent service and quick response,0.67,No
+C555,Female,36,43,Premium,399,17157,25,Happy with service,0.8,No
+C556,Female,59,43,Basic,899,38657,26,Very loyal customer,0.43,Yes
+C557,Female,19,29,Basic,399,11571,24,Excellent service and quick response,0.67,Yes
+C558,Male,51,35,Premium,399,13965,26,Very loyal customer,0.43,Yes
+C559,Female,51,43,Premium,799,34357,7,Average experience,-0.15,No
+C560,Female,46,34,Basic,999,33966,28,Very loyal customer,0.43,No
+C561,Female,51,47,Premium,499,23453,15,Connectivity issues frequently,0.1,No
+C562,Male,36,20,Standard,699,13980,3,Not happy with service delay,-0.4,Yes
+C563,Male,50,44,Basic,899,39556,30,Excellent service and quick response,0.67,No
+C564,Female,51,37,Standard,399,14763,12,Poor quality of service and support,-0.4,No
+C565,Male,31,2,Premium,599,1198,18,Very loyal customer,0.43,Yes
+C566,Female,60,43,Premium,999,42957,8,Connectivity issues frequently,0.1,No
+C567,Female,64,38,Premium,399,15162,12,Support team is great and helpful,0.8,Yes
+C568,Male,50,19,Basic,899,17081,14,Unresponsive customer support,0.0,No
+C569,Male,23,46,Standard,399,18354,4,Frequent connectivity issues,0.1,Yes
+C570,Male,57,18,Basic,599,10782,18,Average experience,-0.15,No
+C571,Female,47,40,Standard,699,27960,6,Excellent service and quick response,0.67,Yes
+C572,Female,42,14,Standard,999,13986,28,Good overall experience,0.35,No
+C573,Female,35,21,Basic,899,18879,21,Average experience,-0.15,Yes
+C574,Male,27,28,Standard,999,27972,22,Not happy with service delay,-0.4,Yes
+C575,Male,59,37,Premium,399,14763,8,Quick issue resolution,0.33,No
+C576,Male,39,20,Standard,799,15980,14,Frequent connectivity issues,0.1,No
+C577,Female,20,30,Basic,399,11970,19,Not worth the price,-0.15,No
+C578,Male,46,20,Standard,999,19980,16,Very loyal customer,0.43,No
+C579,Male,18,29,Standard,899,26071,16,Very satisfied with subscription,0.65,Yes
+C580,Female,25,46,Standard,999,45954,1,Good support but sometimes slow,0.2,No
+C581,Female,19,34,Basic,799,27166,7,Very satisfied with subscription,0.65,No
+C582,Male,43,14,Standard,499,6986,16,Frequent connectivity issues,0.1,No
+C583,Female,55,31,Basic,399,12369,4,Poor quality of service and support,-0.4,Yes
+C584,Male,65,3,Standard,399,1197,11,Not happy with service delay,-0.4,No
+C585,Male,52,21,Basic,399,8379,1,Unhappy with delay in response,-0.6,No
+C586,Female,19,32,Standard,599,19168,19,Average experience,-0.15,Yes
+C587,Female,46,22,Standard,399,8778,17,Connectivity issues frequently,0.1,No
+C588,Female,50,28,Premium,599,16772,8,Good overall experience,0.35,No
+C589,Female,38,48,Premium,599,28752,5,Good overall experience,0.35,Yes
+C590,Male,52,20,Basic,899,17980,29,Happy with service,0.8,No
+C591,Male,35,35,Basic,999,34965,18,Unresponsive customer support,0.0,Yes
+C592,Female,60,10,Premium,499,4990,10,Excellent service and quick response,0.67,No
+C593,Female,50,10,Basic,499,4990,1,Unhappy with delay in response,-0.6,No
+C594,Female,50,30,Basic,899,26970,10,Poor quality of service and support,-0.4,Yes
+C595,Female,26,5,Standard,499,2495,1,Frequent connectivity issues,0.1,No
+C596,Male,35,8,Basic,899,7192,7,Excellent service and quick response,0.67,Yes
+C597,Female,53,4,Basic,799,3196,23,Frequent connectivity issues,0.1,Yes
+C598,Female,45,16,Basic,799,12784,30,Good overall experience,0.35,Yes
+C599,Male,37,24,Standard,599,14376,28,Unhappy with delay in response,-0.6,No
+C600,Male,47,36,Premium,399,14364,16,Good overall experience,0.35,Yes
+C601,Male,48,41,Basic,699,28659,26,Not happy with service delay,-0.4,No
+C602,Female,42,25,Standard,999,24975,4,Quick issue resolution,0.33,Yes
+C603,Male,36,31,Standard,399,12369,28,Unresponsive customer support,0.0,Yes
+C604,Male,19,15,Basic,699,10485,28,Very satisfied with subscription,0.65,Yes
+C605,Male,21,33,Standard,499,16467,5,Very satisfied with subscription,0.65,No
+C606,Male,40,24,Standard,899,21576,6,Poor quality of service and support,-0.4,No
+C607,Female,19,18,Premium,799,14382,2,Very loyal customer,0.43,No
+C608,Female,23,23,Basic,499,11477,30,Not happy with service delay,-0.4,No
+C609,Male,38,4,Standard,399,1596,4,Unhappy with delay in response,-0.6,Yes
+C610,Female,25,19,Premium,499,9481,23,Very loyal customer,0.43,No
+C611,Female,63,36,Basic,499,17964,12,Connectivity issues frequently,0.1,Yes
+C612,Female,18,11,Basic,899,9889,16,Unhappy with delay in response,-0.6,No
+C613,Male,38,23,Premium,399,9177,20,Poor quality of service and support,-0.4,Yes
+C614,Male,26,25,Premium,799,19975,6,Unresponsive customer support,0.0,No
+C615,Male,47,1,Standard,399,399,27,Frequent connectivity issues,0.1,Yes
+C616,Male,39,23,Standard,799,18377,28,Happy with service,0.8,Yes
+C617,Female,31,17,Premium,499,8483,18,Unresponsive customer support,0.0,Yes
+C618,Male,41,45,Premium,899,40455,5,Not happy with service delay,-0.4,No
+C619,Female,38,28,Basic,599,16772,3,Poor quality of service and support,-0.4,No
+C620,Male,44,6,Standard,399,2394,28,Unresponsive customer support,0.0,No
+C621,Female,63,25,Basic,499,12475,18,Unresponsive customer support,0.0,No
+C622,Female,21,18,Premium,399,7182,13,Support team is great and helpful,0.8,Yes
+C623,Male,59,42,Premium,399,16758,23,Average experience,-0.15,Yes
+C624,Male,29,16,Premium,499,7984,5,Quick issue resolution,0.33,Yes
+C625,Female,49,9,Basic,699,6291,17,Poor quality of service and support,-0.4,No
+C626,Female,45,10,Basic,699,6990,20,Poor quality of service and support,-0.4,No
+C627,Male,31,17,Premium,399,6783,12,Good overall experience,0.35,No
+C628,Male,53,17,Premium,899,15283,30,Excellent service and quick response,0.67,Yes
+C629,Female,41,9,Basic,499,4491,30,Frequent connectivity issues,0.1,No
+C630,Male,49,14,Standard,399,5586,12,Happy with service,0.8,Yes
+C631,Female,29,26,Basic,699,18174,16,Poor quality of service and support,-0.4,No
+C632,Male,30,17,Basic,799,13583,23,Good support but sometimes slow,0.2,No
+C633,Male,57,4,Premium,399,1596,30,Happy with service,0.8,Yes
+C634,Male,20,1,Standard,999,999,29,Very satisfied with subscription,0.65,No
+C635,Male,26,14,Premium,899,12586,14,Not happy with service delay,-0.4,No
+C636,Female,39,13,Premium,599,7787,18,Unhappy with delay in response,-0.6,Yes
+C637,Male,18,5,Basic,699,3495,6,Very loyal customer,0.43,No
+C638,Female,33,33,Basic,999,32967,18,Unhappy with delay in response,-0.6,No
+C639,Female,38,30,Standard,799,23970,30,Connectivity issues frequently,0.1,No
+C640,Female,47,35,Premium,699,24465,19,Support team is great and helpful,0.8,Yes
+C641,Female,62,13,Standard,399,5187,18,Very satisfied with subscription,0.65,Yes
+C642,Female,59,11,Premium,899,9889,4,Good support but sometimes slow,0.2,Yes
+C643,Female,46,44,Standard,499,21956,15,Connectivity issues frequently,0.1,Yes
+C644,Female,25,48,Premium,699,33552,27,Unresponsive customer support,0.0,No
+C645,Male,58,17,Premium,599,10183,18,Not worth the price,-0.15,No
+C646,Female,35,43,Standard,899,38657,10,Quick issue resolution,0.33,Yes
+C647,Female,45,42,Standard,699,29358,28,Connectivity issues frequently,0.1,Yes
+C648,Male,53,13,Premium,499,6487,29,Not worth the price,-0.15,Yes
+C649,Male,23,43,Standard,699,30057,13,Very satisfied with subscription,0.65,Yes
+C650,Male,26,16,Basic,699,11184,3,Support team is great and helpful,0.8,Yes
+C651,Female,52,39,Standard,499,19461,16,Very satisfied with subscription,0.65,Yes
+C652,Male,31,16,Standard,799,12784,22,Support team is great and helpful,0.8,No
+C653,Male,30,9,Premium,599,5391,4,Not worth the price,-0.15,No
+C654,Male,20,28,Standard,399,11172,23,Average experience,-0.15,Yes
+C655,Female,28,14,Premium,399,5586,30,Unresponsive customer support,0.0,Yes
+C656,Female,19,35,Basic,399,13965,1,Support team is great and helpful,0.8,Yes
+C657,Female,29,10,Basic,899,8990,14,Average experience,-0.15,Yes
+C658,Female,40,26,Standard,899,23374,10,Very loyal customer,0.43,No
+C659,Female,38,41,Standard,799,32759,4,Very satisfied with subscription,0.65,Yes
+C660,Male,58,20,Basic,599,11980,7,Good support but sometimes slow,0.2,No
+C661,Male,34,6,Premium,599,3594,12,Average experience,-0.15,Yes
+C662,Female,57,35,Basic,399,13965,12,Average experience,-0.15,No
+C663,Male,65,32,Standard,599,19168,25,Unresponsive customer support,0.0,Yes
+C664,Male,32,22,Basic,499,10978,18,Very loyal customer,0.43,Yes
+C665,Female,55,6,Standard,699,4194,3,Connectivity issues frequently,0.1,No
+C666,Male,35,17,Standard,499,8483,7,Support team is great and helpful,0.8,Yes
+C667,Female,39,44,Basic,899,39556,10,Excellent service and quick response,0.67,No
+C668,Male,64,42,Premium,499,20958,11,Good support but sometimes slow,0.2,No
+C669,Female,19,23,Premium,799,18377,20,Very satisfied with subscription,0.65,Yes
+C670,Male,32,32,Standard,499,15968,30,Unresponsive customer support,0.0,Yes
+C671,Female,54,19,Premium,799,15181,15,Unresponsive customer support,0.0,Yes
+C672,Male,38,32,Standard,599,19168,2,Average experience,-0.15,Yes
+C673,Female,53,21,Basic,499,10479,15,Support team is great and helpful,0.8,No
+C674,Male,57,23,Basic,599,13777,5,Good overall experience,0.35,Yes
+C675,Male,49,14,Premium,899,12586,16,Excellent service and quick response,0.67,No
+C676,Male,22,37,Premium,699,25863,15,Very loyal customer,0.43,No
+C677,Male,49,41,Basic,499,20459,1,Unresponsive customer support,0.0,Yes
+C678,Female,30,22,Premium,799,17578,9,Quick issue resolution,0.33,Yes
+C679,Male,39,24,Premium,599,14376,10,Good overall experience,0.35,No
+C680,Female,20,11,Standard,399,4389,4,Unhappy with delay in response,-0.6,No
+C681,Female,45,13,Standard,399,5187,24,Good overall experience,0.35,No
+C682,Female,19,36,Standard,599,21564,16,Excellent service and quick response,0.67,Yes
+C683,Male,47,12,Standard,599,7188,16,Unresponsive customer support,0.0,Yes
+C684,Female,32,23,Premium,799,18377,19,Good overall experience,0.35,No
+C685,Male,36,26,Premium,899,23374,16,Average experience,-0.15,Yes
+C686,Male,31,16,Basic,799,12784,25,Average experience,-0.15,Yes
+C687,Male,52,37,Basic,799,29563,20,Good support but sometimes slow,0.2,Yes
+C688,Male,30,32,Standard,499,15968,14,Very loyal customer,0.43,Yes
+C689,Male,53,25,Basic,499,12475,25,Not happy with service delay,-0.4,Yes
+C690,Male,27,5,Basic,399,1995,16,Not worth the price,-0.15,Yes
+C691,Male,31,5,Basic,699,3495,4,Unhappy with delay in response,-0.6,No
+C692,Male,23,23,Basic,399,9177,29,Excellent service and quick response,0.67,Yes
+C693,Female,35,33,Basic,699,23067,16,Very satisfied with subscription,0.65,Yes
+C694,Male,58,5,Standard,799,3995,7,Happy with service,0.8,No
+C695,Male,53,47,Basic,899,42253,16,Very satisfied with subscription,0.65,Yes
+C696,Male,51,23,Premium,699,16077,15,Good overall experience,0.35,Yes
+C697,Male,60,39,Basic,399,15561,29,Excellent service and quick response,0.67,Yes
+C698,Male,58,31,Premium,799,24769,6,Not happy with service delay,-0.4,No
+C699,Male,40,34,Premium,399,13566,23,Very satisfied with subscription,0.65,Yes
+C700,Female,55,46,Basic,699,32154,27,Average experience,-0.15,No
+C701,Male,24,18,Standard,499,8982,22,Average experience,-0.15,Yes
+C702,Male,37,37,Basic,599,22163,17,Good overall experience,0.35,Yes
+C703,Female,27,32,Standard,499,15968,2,Unhappy with delay in response,-0.6,Yes
+C704,Male,36,27,Premium,399,10773,3,Poor quality of service and support,-0.4,Yes
+C705,Male,19,13,Standard,699,9087,14,Good overall experience,0.35,No
+C706,Male,47,39,Standard,899,35061,18,Support team is great and helpful,0.8,No
+C707,Female,39,34,Basic,599,20366,17,Connectivity issues frequently,0.1,Yes
+C708,Female,39,13,Basic,699,9087,6,Quick issue resolution,0.33,Yes
+C709,Male,29,43,Basic,899,38657,13,Not happy with service delay,-0.4,No
+C710,Male,28,9,Premium,399,3591,24,Quick issue resolution,0.33,Yes
+C711,Female,56,6,Basic,499,2994,9,Unhappy with delay in response,-0.6,Yes
+C712,Male,53,13,Premium,599,7787,9,Poor quality of service and support,-0.4,Yes
+C713,Female,23,44,Basic,699,30756,29,Average experience,-0.15,No
+C714,Male,32,7,Premium,899,6293,28,Not worth the price,-0.15,No
+C715,Female,62,25,Standard,699,17475,6,Excellent service and quick response,0.67,Yes
+C716,Female,19,46,Premium,799,36754,19,Very satisfied with subscription,0.65,No
+C717,Female,59,16,Standard,899,14384,22,Not worth the price,-0.15,No
+C718,Male,64,5,Basic,999,4995,25,Good overall experience,0.35,No
+C719,Female,43,3,Standard,399,1197,30,Unresponsive customer support,0.0,Yes
+C720,Female,48,12,Basic,899,10788,10,Unresponsive customer support,0.0,No
+C721,Male,54,9,Premium,999,8991,24,Good overall experience,0.35,Yes
+C722,Female,62,40,Standard,599,23960,2,Quick issue resolution,0.33,Yes
+C723,Female,34,33,Premium,799,26367,29,Excellent service and quick response,0.67,No
+C724,Female,19,9,Basic,599,5391,5,Support team is great and helpful,0.8,Yes
+C725,Male,28,32,Basic,399,12768,26,Good overall experience,0.35,Yes
+C726,Female,60,22,Standard,999,21978,21,Not happy with service delay,-0.4,Yes
+C727,Male,51,30,Premium,899,26970,22,Very satisfied with subscription,0.65,Yes
+C728,Male,53,48,Basic,399,19152,16,Average experience,-0.15,No
+C729,Female,18,36,Premium,799,28764,17,Very loyal customer,0.43,Yes
+C730,Female,29,46,Standard,499,22954,1,Frequent connectivity issues,0.1,No
+C731,Female,34,26,Basic,699,18174,6,Quick issue resolution,0.33,No
+C732,Female,24,9,Basic,999,8991,8,Very satisfied with subscription,0.65,Yes
+C733,Male,40,32,Basic,899,28768,15,Very loyal customer,0.43,Yes
+C734,Male,58,44,Basic,399,17556,20,Good overall experience,0.35,Yes
+C735,Male,24,5,Basic,599,2995,17,Good overall experience,0.35,Yes
+C736,Female,18,26,Premium,699,18174,1,Poor quality of service and support,-0.4,No
+C737,Male,50,23,Standard,799,18377,7,Happy with service,0.8,Yes
+C738,Female,43,18,Premium,399,7182,20,Poor quality of service and support,-0.4,No
+C739,Female,55,27,Premium,699,18873,12,Connectivity issues frequently,0.1,Yes
+C740,Male,50,41,Standard,699,28659,30,Not happy with service delay,-0.4,Yes
+C741,Male,22,24,Standard,499,11976,3,Frequent connectivity issues,0.1,No
+C742,Male,45,9,Basic,599,5391,29,Good overall experience,0.35,Yes
+C743,Male,24,10,Premium,499,4990,11,Poor quality of service and support,-0.4,Yes
+C744,Male,61,48,Standard,999,47952,18,Very loyal customer,0.43,Yes
+C745,Male,56,41,Premium,499,20459,13,Quick issue resolution,0.33,No
+C746,Female,32,5,Standard,699,3495,20,Support team is great and helpful,0.8,Yes
+C747,Male,44,6,Standard,399,2394,23,Average experience,-0.15,No
+C748,Male,48,40,Standard,799,31960,27,Average experience,-0.15,No
+C749,Female,38,12,Standard,399,4788,1,Unresponsive customer support,0.0,Yes
+C750,Female,23,16,Basic,499,7984,13,Connectivity issues frequently,0.1,No
+C751,Female,46,47,Standard,499,23453,8,Not worth the price,-0.15,Yes
+C752,Male,46,36,Standard,699,25164,28,Quick issue resolution,0.33,Yes
+C753,Female,25,21,Standard,799,16779,18,Happy with service,0.8,No
+C754,Female,51,33,Basic,599,19767,20,Happy with service,0.8,No
+C755,Female,46,25,Premium,799,19975,10,Unresponsive customer support,0.0,Yes
+C756,Female,24,8,Premium,399,3192,25,Support team is great and helpful,0.8,Yes
+C757,Male,37,5,Standard,899,4495,18,Unresponsive customer support,0.0,Yes
+C758,Male,41,34,Standard,799,27166,19,Excellent service and quick response,0.67,No
+C759,Male,21,46,Premium,899,41354,16,Not happy with service delay,-0.4,No
+C760,Male,52,17,Standard,799,13583,17,Very loyal customer,0.43,Yes
+C761,Female,28,5,Premium,799,3995,26,Excellent service and quick response,0.67,Yes
+C762,Male,18,30,Premium,999,29970,18,Very loyal customer,0.43,No
+C763,Male,31,11,Premium,599,6589,9,Happy with service,0.8,No
+C764,Male,43,47,Basic,599,28153,6,Unhappy with delay in response,-0.6,Yes
+C765,Female,21,25,Premium,499,12475,18,Not worth the price,-0.15,Yes
+C766,Male,25,3,Standard,599,1797,25,Support team is great and helpful,0.8,Yes
+C767,Male,63,26,Basic,599,15574,2,Average experience,-0.15,Yes
+C768,Female,29,48,Premium,799,38352,29,Connectivity issues frequently,0.1,No
+C769,Male,29,44,Premium,699,30756,23,Unresponsive customer support,0.0,Yes
+C770,Female,39,22,Standard,699,15378,15,Good support but sometimes slow,0.2,Yes
+C771,Female,40,48,Basic,399,19152,4,Excellent service and quick response,0.67,No
+C772,Female,34,33,Premium,999,32967,3,Support team is great and helpful,0.8,Yes
+C773,Male,43,44,Premium,599,26356,24,Support team is great and helpful,0.8,Yes
+C774,Male,64,48,Premium,599,28752,15,Good support but sometimes slow,0.2,No
+C775,Male,27,42,Basic,999,41958,15,Frequent connectivity issues,0.1,No
+C776,Male,19,43,Standard,899,38657,29,Not happy with service delay,-0.4,Yes
+C777,Male,38,7,Premium,999,6993,26,Not worth the price,-0.15,No
+C778,Male,36,4,Basic,999,3996,23,Connectivity issues frequently,0.1,No
+C779,Female,57,2,Premium,699,1398,1,Unresponsive customer support,0.0,Yes
+C780,Male,35,37,Standard,599,22163,15,Average experience,-0.15,No
+C781,Male,22,3,Standard,499,1497,3,Very satisfied with subscription,0.65,Yes
+C782,Female,19,16,Premium,699,11184,24,Unresponsive customer support,0.0,No
+C783,Male,23,46,Basic,899,41354,28,Quick issue resolution,0.33,No
+C784,Female,40,8,Basic,499,3992,20,Good overall experience,0.35,Yes
+C785,Female,53,1,Standard,999,999,9,Happy with service,0.8,No
+C786,Female,25,6,Premium,999,5994,13,Excellent service and quick response,0.67,No
+C787,Male,18,8,Basic,499,3992,20,Quick issue resolution,0.33,No
+C788,Female,18,39,Premium,399,15561,16,Unresponsive customer support,0.0,No
+C789,Male,19,29,Premium,599,17371,5,Good support but sometimes slow,0.2,No
+C790,Female,21,32,Standard,799,25568,10,Not worth the price,-0.15,No
+C791,Female,32,11,Premium,699,7689,15,Average experience,-0.15,No
+C792,Male,25,44,Premium,799,35156,16,Support team is great and helpful,0.8,No
+C793,Male,23,20,Standard,899,17980,5,Good overall experience,0.35,Yes
+C794,Female,31,39,Basic,599,23361,27,Unhappy with delay in response,-0.6,No
+C795,Male,64,25,Standard,999,24975,8,Quick issue resolution,0.33,No
+C796,Male,50,31,Basic,699,21669,21,Average experience,-0.15,Yes
+C797,Male,44,5,Premium,799,3995,22,Unhappy with delay in response,-0.6,No
+C798,Female,41,32,Premium,399,12768,19,Connectivity issues frequently,0.1,No
+C799,Male,51,28,Standard,699,19572,4,Poor quality of service and support,-0.4,Yes
+C800,Female,45,18,Premium,899,16182,21,Average experience,-0.15,No
+C801,Female,40,34,Premium,499,16966,11,Excellent service and quick response,0.67,Yes
+C802,Male,43,25,Premium,499,12475,21,Very satisfied with subscription,0.65,No
+C803,Male,25,1,Basic,799,799,27,Quick issue resolution,0.33,No
+C804,Female,49,26,Premium,599,15574,22,Connectivity issues frequently,0.1,Yes
+C805,Male,42,28,Premium,699,19572,26,Connectivity issues frequently,0.1,No
+C806,Male,33,36,Premium,899,32364,24,Quick issue resolution,0.33,No
+C807,Male,55,21,Standard,499,10479,30,Support team is great and helpful,0.8,Yes
+C808,Male,22,18,Standard,399,7182,30,Good support but sometimes slow,0.2,Yes
+C809,Male,37,44,Premium,999,43956,5,Very loyal customer,0.43,Yes
+C810,Female,46,9,Standard,499,4491,8,Quick issue resolution,0.33,No
+C811,Female,42,31,Standard,799,24769,30,Good support but sometimes slow,0.2,No
+C812,Female,38,34,Standard,799,27166,13,Happy with service,0.8,Yes
+C813,Female,64,40,Standard,699,27960,21,Not happy with service delay,-0.4,No
+C814,Male,20,40,Standard,799,31960,16,Average experience,-0.15,No
+C815,Female,23,10,Basic,799,7990,7,Connectivity issues frequently,0.1,No
+C816,Female,41,25,Premium,499,12475,30,Poor quality of service and support,-0.4,No
+C817,Male,45,30,Premium,499,14970,25,Happy with service,0.8,Yes
+C818,Female,20,22,Premium,499,10978,24,Unresponsive customer support,0.0,Yes
+C819,Male,48,48,Standard,699,33552,12,Unhappy with delay in response,-0.6,No
+C820,Female,61,28,Premium,499,13972,21,Not worth the price,-0.15,Yes
+C821,Female,59,4,Basic,899,3596,16,Support team is great and helpful,0.8,No
+C822,Male,20,45,Premium,399,17955,19,Frequent connectivity issues,0.1,Yes
+C823,Male,45,14,Standard,899,12586,29,Very loyal customer,0.43,No
+C824,Female,27,36,Basic,899,32364,21,Good support but sometimes slow,0.2,No
+C825,Female,58,36,Standard,799,28764,4,Very satisfied with subscription,0.65,Yes
+C826,Male,32,32,Basic,499,15968,1,Good overall experience,0.35,No
+C827,Male,37,36,Standard,699,25164,25,Unresponsive customer support,0.0,No
+C828,Female,42,46,Premium,499,22954,28,Quick issue resolution,0.33,No
+C829,Male,46,48,Basic,799,38352,3,Very satisfied with subscription,0.65,Yes
+C830,Female,53,15,Basic,699,10485,15,Very loyal customer,0.43,No
+C831,Male,52,40,Basic,999,39960,27,Unresponsive customer support,0.0,No
+C832,Male,49,20,Basic,599,11980,15,Poor quality of service and support,-0.4,No
+C833,Female,55,29,Standard,699,20271,24,Good overall experience,0.35,No
+C834,Male,38,22,Premium,499,10978,28,Happy with service,0.8,No
+C835,Male,58,29,Premium,799,23171,14,Quick issue resolution,0.33,No
+C836,Male,59,9,Standard,799,7191,13,Quick issue resolution,0.33,Yes
+C837,Male,22,29,Premium,599,17371,6,Quick issue resolution,0.33,No
+C838,Male,42,40,Standard,499,19960,11,Good support but sometimes slow,0.2,Yes
+C839,Male,24,1,Premium,899,899,29,Support team is great and helpful,0.8,Yes
+C840,Male,55,2,Premium,699,1398,30,Good support but sometimes slow,0.2,No
+C841,Male,58,39,Premium,799,31161,4,Average experience,-0.15,Yes
+C842,Male,38,20,Standard,999,19980,23,Unhappy with delay in response,-0.6,Yes
+C843,Male,19,47,Basic,399,18753,21,Unhappy with delay in response,-0.6,No
+C844,Male,46,6,Standard,499,2994,9,Not worth the price,-0.15,Yes
+C845,Male,24,17,Premium,799,13583,3,Very loyal customer,0.43,Yes
+C846,Male,20,29,Standard,899,26071,26,Unhappy with delay in response,-0.6,No
+C847,Male,45,4,Standard,899,3596,22,Very loyal customer,0.43,No
+C848,Female,44,11,Standard,999,10989,21,Good support but sometimes slow,0.2,No
+C849,Male,23,40,Standard,599,23960,17,Unhappy with delay in response,-0.6,No
+C850,Female,22,13,Standard,899,11687,15,Average experience,-0.15,No
+C851,Male,61,12,Premium,999,11988,2,Not worth the price,-0.15,Yes
+C852,Female,39,1,Premium,799,799,3,Frequent connectivity issues,0.1,No
+C853,Male,42,15,Standard,999,14985,21,Unresponsive customer support,0.0,Yes
+C854,Female,40,31,Standard,399,12369,6,Not worth the price,-0.15,No
+C855,Male,22,42,Premium,599,25158,13,Good support but sometimes slow,0.2,No
+C856,Male,27,42,Basic,599,25158,12,Unresponsive customer support,0.0,No
+C857,Male,59,7,Basic,899,6293,2,Frequent connectivity issues,0.1,Yes
+C858,Male,62,48,Premium,399,19152,30,Good overall experience,0.35,Yes
+C859,Male,30,27,Standard,899,24273,13,Very satisfied with subscription,0.65,No
+C860,Female,24,48,Standard,499,23952,15,Unresponsive customer support,0.0,No
+C861,Male,34,32,Premium,699,22368,13,Average experience,-0.15,No
+C862,Female,29,23,Standard,799,18377,13,Poor quality of service and support,-0.4,No
+C863,Female,44,10,Basic,799,7990,23,Unresponsive customer support,0.0,No
+C864,Female,40,44,Premium,699,30756,27,Not worth the price,-0.15,Yes
+C865,Male,43,38,Basic,399,15162,12,Average experience,-0.15,No
+C866,Male,51,30,Standard,599,17970,17,Average experience,-0.15,No
+C867,Female,59,3,Standard,599,1797,7,Connectivity issues frequently,0.1,No
+C868,Female,53,41,Premium,599,24559,18,Happy with service,0.8,No
+C869,Female,54,1,Premium,399,399,24,Unresponsive customer support,0.0,Yes
+C870,Female,44,11,Basic,599,6589,17,Very satisfied with subscription,0.65,No
+C871,Male,40,30,Standard,999,29970,6,Unresponsive customer support,0.0,Yes
+C872,Male,22,36,Standard,699,25164,13,Very loyal customer,0.43,No
+C873,Female,32,19,Standard,999,18981,19,Frequent connectivity issues,0.1,No
+C874,Male,50,30,Premium,499,14970,20,Average experience,-0.15,No
+C875,Female,20,15,Standard,399,5985,9,Quick issue resolution,0.33,No
+C876,Male,26,35,Basic,599,20965,7,Excellent service and quick response,0.67,No
+C877,Male,50,2,Premium,699,1398,8,Not happy with service delay,-0.4,Yes
+C878,Male,63,30,Premium,599,17970,7,Poor quality of service and support,-0.4,No
+C879,Male,49,17,Standard,899,15283,26,Quick issue resolution,0.33,No
+C880,Female,60,43,Premium,499,21457,27,Happy with service,0.8,No
+C881,Male,20,43,Basic,899,38657,10,Happy with service,0.8,No
+C882,Female,58,40,Premium,399,15960,22,Happy with service,0.8,Yes
+C883,Male,27,36,Basic,599,21564,11,Very satisfied with subscription,0.65,Yes
+C884,Female,59,20,Basic,799,15980,19,Poor quality of service and support,-0.4,No
+C885,Female,39,44,Standard,399,17556,13,Frequent connectivity issues,0.1,No
+C886,Female,50,44,Standard,599,26356,25,Unresponsive customer support,0.0,Yes
+C887,Male,29,24,Standard,999,23976,5,Good support but sometimes slow,0.2,Yes
+C888,Male,20,16,Premium,499,7984,28,Average experience,-0.15,Yes
+C889,Male,30,12,Standard,499,5988,12,Quick issue resolution,0.33,No
+C890,Female,20,19,Basic,699,13281,25,Very loyal customer,0.43,No
+C891,Female,31,1,Standard,599,599,13,Quick issue resolution,0.33,Yes
+C892,Female,63,12,Standard,699,8388,30,Connectivity issues frequently,0.1,No
+C893,Female,53,12,Basic,699,8388,12,Excellent service and quick response,0.67,Yes
+C894,Male,22,19,Premium,999,18981,25,Frequent connectivity issues,0.1,No
+C895,Male,53,14,Standard,899,12586,28,Support team is great and helpful,0.8,Yes
+C896,Female,24,2,Premium,499,998,1,Unresponsive customer support,0.0,No
+C897,Female,24,14,Standard,699,9786,7,Not worth the price,-0.15,No
+C898,Male,36,6,Standard,699,4194,11,Quick issue resolution,0.33,Yes
+C899,Male,54,22,Standard,699,15378,22,Not worth the price,-0.15,No
+C900,Female,65,7,Basic,799,5593,1,Very loyal customer,0.43,No
+C901,Male,37,20,Basic,399,7980,10,Not happy with service delay,-0.4,No
+C902,Female,26,2,Standard,399,798,19,Not happy with service delay,-0.4,Yes
+C903,Male,47,5,Basic,499,2495,28,Unresponsive customer support,0.0,No
+C904,Male,41,39,Basic,899,35061,29,Excellent service and quick response,0.67,Yes
+C905,Male,43,17,Standard,899,15283,11,Good support but sometimes slow,0.2,No
+C906,Female,27,38,Standard,499,18962,21,Not happy with service delay,-0.4,Yes
+C907,Female,28,34,Standard,399,13566,17,Unhappy with delay in response,-0.6,Yes
+C908,Female,34,32,Premium,999,31968,7,Not happy with service delay,-0.4,Yes
+C909,Female,18,16,Standard,499,7984,27,Unhappy with delay in response,-0.6,No
+C910,Male,23,10,Basic,999,9990,5,Support team is great and helpful,0.8,Yes
+C911,Male,40,27,Basic,399,10773,14,Poor quality of service and support,-0.4,Yes
+C912,Male,57,26,Premium,599,15574,11,Frequent connectivity issues,0.1,Yes
+C913,Female,32,5,Basic,399,1995,12,Happy with service,0.8,Yes
+C914,Male,42,7,Premium,899,6293,11,Quick issue resolution,0.33,Yes
+C915,Female,41,3,Basic,399,1197,23,Unhappy with delay in response,-0.6,No
+C916,Male,56,29,Basic,599,17371,17,Unhappy with delay in response,-0.6,No
+C917,Female,55,9,Premium,899,8091,8,Poor quality of service and support,-0.4,Yes
+C918,Female,37,47,Premium,899,42253,11,Unresponsive customer support,0.0,No
+C919,Male,48,1,Premium,999,999,19,Frequent connectivity issues,0.1,No
+C920,Female,58,46,Premium,999,45954,5,Connectivity issues frequently,0.1,No
+C921,Female,40,42,Basic,999,41958,26,Unresponsive customer support,0.0,Yes
+C922,Male,50,20,Premium,399,7980,16,Excellent service and quick response,0.67,Yes
+C923,Male,23,12,Basic,999,11988,3,Excellent service and quick response,0.67,Yes
+C924,Male,52,17,Basic,399,6783,17,Very loyal customer,0.43,Yes
+C925,Male,50,10,Standard,799,7990,6,Very satisfied with subscription,0.65,Yes
+C926,Female,29,23,Basic,399,9177,6,Good support but sometimes slow,0.2,Yes
+C927,Female,58,8,Premium,799,6392,10,Happy with service,0.8,No
+C928,Female,63,10,Premium,799,7990,4,Frequent connectivity issues,0.1,Yes
+C929,Female,43,12,Standard,399,4788,3,Not worth the price,-0.15,Yes
+C930,Male,53,30,Basic,899,26970,5,Very loyal customer,0.43,No
+C931,Female,40,12,Basic,499,5988,8,Good overall experience,0.35,No
+C932,Female,20,29,Basic,399,11571,6,Unhappy with delay in response,-0.6,Yes
+C933,Male,44,17,Premium,799,13583,9,Average experience,-0.15,Yes
+C934,Male,22,26,Premium,899,23374,3,Frequent connectivity issues,0.1,Yes
+C935,Male,40,13,Standard,399,5187,19,Quick issue resolution,0.33,Yes
+C936,Female,44,20,Standard,799,15980,27,Connectivity issues frequently,0.1,Yes
+C937,Male,18,12,Basic,999,11988,18,Not worth the price,-0.15,No
+C938,Male,55,12,Basic,599,7188,17,Very loyal customer,0.43,No
+C939,Female,39,35,Standard,499,17465,30,Connectivity issues frequently,0.1,Yes
+C940,Male,31,13,Basic,899,11687,14,Good overall experience,0.35,No
+C941,Male,46,10,Basic,899,8990,28,Poor quality of service and support,-0.4,No
+C942,Male,23,7,Standard,699,4893,19,Quick issue resolution,0.33,No
+C943,Female,32,38,Basic,599,22762,3,Unresponsive customer support,0.0,Yes
+C944,Female,35,29,Premium,399,11571,17,Happy with service,0.8,No
+C945,Male,51,28,Premium,399,11172,14,Frequent connectivity issues,0.1,No
+C946,Male,63,12,Standard,899,10788,30,Quick issue resolution,0.33,Yes
+C947,Female,38,5,Standard,799,3995,13,Not worth the price,-0.15,No
+C948,Female,65,12,Basic,399,4788,9,Support team is great and helpful,0.8,No
+C949,Female,19,41,Standard,899,36859,14,Not happy with service delay,-0.4,No
+C950,Female,38,34,Standard,699,23766,19,Very satisfied with subscription,0.65,No
+C951,Male,38,39,Premium,999,38961,5,Poor quality of service and support,-0.4,Yes
+C952,Female,45,1,Premium,399,399,14,Good overall experience,0.35,No
+C953,Male,23,16,Standard,899,14384,7,Good support but sometimes slow,0.2,No
+C954,Male,23,20,Basic,599,11980,26,Not happy with service delay,-0.4,No
+C955,Male,35,42,Basic,899,37758,12,Connectivity issues frequently,0.1,No
+C956,Male,52,43,Premium,399,17157,22,Very satisfied with subscription,0.65,Yes
+C957,Male,49,24,Premium,799,19176,13,Poor quality of service and support,-0.4,Yes
+C958,Female,65,14,Basic,999,13986,8,Good overall experience,0.35,No
+C959,Male,37,22,Premium,399,8778,2,Not worth the price,-0.15,Yes
+C960,Male,30,18,Basic,499,8982,22,Good overall experience,0.35,No
+C961,Female,44,26,Basic,499,12974,14,Poor quality of service and support,-0.4,No
+C962,Female,38,36,Basic,499,17964,24,Excellent service and quick response,0.67,No
+C963,Male,56,44,Standard,999,43956,4,Not happy with service delay,-0.4,Yes
+C964,Female,21,43,Standard,599,25757,11,Excellent service and quick response,0.67,No
+C965,Male,44,28,Standard,699,19572,12,Unresponsive customer support,0.0,Yes
+C966,Female,36,15,Basic,899,13485,16,Good overall experience,0.35,Yes
+C967,Female,18,6,Premium,499,2994,8,Very loyal customer,0.43,Yes
+C968,Female,64,31,Basic,999,30969,21,Unresponsive customer support,0.0,No
+C969,Female,48,38,Premium,999,37962,4,Excellent service and quick response,0.67,Yes
+C970,Male,36,5,Standard,599,2995,19,Unresponsive customer support,0.0,No
+C971,Male,22,27,Basic,399,10773,5,Quick issue resolution,0.33,No
+C972,Male,18,18,Basic,599,10782,26,Very loyal customer,0.43,No
+C973,Male,59,29,Premium,699,20271,5,Happy with service,0.8,No
+C974,Female,65,3,Standard,999,2997,10,Very satisfied with subscription,0.65,No
+C975,Female,52,26,Basic,999,25974,13,Happy with service,0.8,No
+C976,Female,28,16,Basic,899,14384,27,Unresponsive customer support,0.0,Yes
+C977,Female,19,30,Premium,499,14970,9,Not happy with service delay,-0.4,Yes
+C978,Male,29,19,Premium,999,18981,17,Support team is great and helpful,0.8,Yes
+C979,Male,55,47,Basic,899,42253,1,Quick issue resolution,0.33,No
+C980,Female,43,46,Premium,599,27554,24,Poor quality of service and support,-0.4,No
+C981,Male,52,13,Basic,599,7787,29,Not happy with service delay,-0.4,No
+C982,Male,27,30,Premium,499,14970,17,Not worth the price,-0.15,Yes
+C983,Female,58,3,Premium,699,2097,19,Not happy with service delay,-0.4,No
+C984,Female,36,2,Premium,499,998,19,Very loyal customer,0.43,No
+C985,Male,34,2,Premium,599,1198,4,Support team is great and helpful,0.8,No
+C986,Female,36,44,Basic,499,21956,4,Average experience,-0.15,No
+C987,Male,40,25,Basic,499,12475,9,Frequent connectivity issues,0.1,No
+C988,Female,49,13,Basic,799,10387,23,Very loyal customer,0.43,Yes
+C989,Male,36,18,Standard,699,12582,3,Unhappy with delay in response,-0.6,Yes
+C990,Female,19,20,Standard,999,19980,2,Average experience,-0.15,Yes
+C991,Male,64,21,Premium,599,12579,8,Support team is great and helpful,0.8,Yes
+C992,Male,23,5,Basic,699,3495,14,Average experience,-0.15,Yes
+C993,Female,26,17,Premium,699,11883,15,Support team is great and helpful,0.8,No
+C994,Male,18,33,Basic,599,19767,25,Average experience,-0.15,Yes
+C995,Male,48,47,Basic,799,37553,18,Poor quality of service and support,-0.4,Yes
+C996,Male,34,1,Standard,999,999,22,Poor quality of service and support,-0.4,Yes
+C997,Male,55,4,Basic,699,2796,17,Connectivity issues frequently,0.1,No
+C998,Male,61,44,Basic,399,17556,10,Support team is great and helpful,0.8,No
+C999,Female,42,44,Standard,399,17556,10,Unresponsive customer support,0.0,Yes
+C1000,Female,29,42,Premium,799,33558,21,Unhappy with delay in response,-0.6,Yes
