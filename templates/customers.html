@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}Company Data Studio{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="hero-section" data-aos="fade-down">
+        <h1 class="hero-title"><i class="fas fa-database me-3"></i>Company Data Studio</h1>
+        <p class="hero-subtitle">Upload any telecom or subscription dataset and turn it into stored customer intelligence.</p>
+    </div>
+
+    {% if model_error %}
+    <div class="alert alert-warning" role="alert">
+        <strong>Model warning:</strong> {{ model_error }}
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-5 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-upload me-2"></i>Upload & Analyze
+                </div>
+                <div class="card-body">
+                    <form id="datasetUploadForm">
+                        <div class="mb-3">
+                            <label class="form-label">Existing Company</label>
+                            <select class="form-control" id="company_id">
+                                <option value="">Create new company</option>
+                                {% for company in nav_companies %}
+                                <option value="{{ company.id }}" {% if selected_company_id == company.id %}selected{% endif %}>{{ company.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">New Company Name</label>
+                            <input type="text" class="form-control" id="company_name" placeholder="Example: Airtel Retention Lab">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Industry</label>
+                            <select class="form-control" id="industry">
+                                <option value="Telecom">Telecom</option>
+                                <option value="Subscription">Subscription</option>
+                                <option value="SaaS">SaaS</option>
+                                <option value="Banking">Banking</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Retail">Retail</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dataset File</label>
+                            <input type="file" class="form-control" id="dataset_file" accept=".csv,.xlsx,.xls" required>
+                            <small class="text-muted">Supported aliases: ARPU, plan_type, customer_feedback, last_contact_days, and more.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-play me-2"></i>Analyze and Store
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <i class="fas fa-folder-tree me-2"></i>Recent Uploads
+                </div>
+                <div class="card-body">
+                    {% if recent_uploads %}
+                    <div class="list-group">
+                        {% for upload in recent_uploads %}
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <strong>{{ upload.company_name }}</strong>
+                                <span class="badge text-bg-light">{{ upload.row_count }} rows</span>
+                            </div>
+                            <div class="text-muted small">{{ upload.filename }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">No uploads stored yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-brain me-2"></i>Stored Customer Intelligence
+                </div>
+                <div class="card-body">
+                    <div id="uploadSummary" class="alert alert-info d-none"></div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="resultsTable">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Risk</th>
+                                    <th>Churn %</th>
+                                    <th>Health</th>
+                                    <th>Offer</th>
+                                    <th>Next Best Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody">
+                                {% for customer in top_customers %}
+                                <tr>
+                                    <td>{{ customer.external_customer_id }}</td>
+                                    <td><span class="badge risk-badge risk-{{ customer.risk_category|lower }}">{{ customer.risk_category }}</span></td>
+                                    <td>{{ (customer.churn_probability * 100)|round(1) }}%</td>
+                                    <td>{{ customer.health_score|round(1) }}</td>
+                                    <td>{{ customer.offer_title }}</td>
+                                    <td>{{ customer.next_best_action }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('datasetUploadForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    const companyId = document.getElementById('company_id').value;
+    const companyName = document.getElementById('company_name').value;
+    const industry = document.getElementById('industry').value;
+    const fileInput = document.getElementById('dataset_file');
+
+    if (!fileInput.files.length) {
+        alert('Please choose a dataset file.');
+        return;
+    }
+
+    formData.append('company_id', companyId);
+    formData.append('company_name', companyName);
+    formData.append('industry', industry);
+    formData.append('file', fileInput.files[0]);
+
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<span class="loading-spinner"></span> Processing...';
+
+    try {
+        const response = await fetch('/api/company/upload', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.error || 'Upload failed.');
+        }
+
+        const summary = document.getElementById('uploadSummary');
+        summary.classList.remove('d-none');
+        summary.innerHTML = `<strong>${data.company.name}</strong> analyzed successfully. ${data.row_count} customers stored in the database.`;
+
+        const tbody = document.getElementById('resultsTableBody');
+        tbody.innerHTML = '';
+        data.results.slice(0, 30).forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.Customer_ID}</td>
+                <td><span class="badge risk-badge risk-${item.Risk_Category.toLowerCase()}">${item.Risk_Category}</span></td>
+                <td>${item.Churn_Probability}%</td>
+                <td>${item.Health_Score.toFixed(1)}</td>
+                <td>${item.Offer_Title}</td>
+                <td>${item.Next_Best_Action}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    } catch (error) {
+        alert(error.message);
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+    }
+});
+</script>
+{% endblock %}

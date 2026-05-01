@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Advanced Analytics{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="hero-section" data-aos="fade-down">
+        <h1 class="hero-title"><i class="fas fa-chart-bar me-3"></i>Advanced Analytics</h1>
+        <p class="hero-subtitle">Deep risk patterns, segment behavior, and company-level retention insight.</p>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <label class="form-label">Company Workspace</label>
+                    <select class="form-control" id="analyticsCompanySelect">
+                        {% for company in nav_companies %}
+                        <option value="{{ company.id }}" {% if selected_company_id == company.id %}selected{% endif %}>{{ company.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    {% if overview.company %}
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="metric-label">Customers</div>
+                            <h3>{{ overview.customer_count }}</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-label">Avg Churn</div>
+                            <h3>{{ overview.avg_churn_probability }}%</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-label">Avg Health</div>
+                            <h3>{{ overview.avg_health_score }}</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-label">Open Actions</div>
+                            <h3>{{ overview.open_actions }}</h3>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">Upload a company dataset first to unlock analytics.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-signal me-2"></i>Risk Distribution
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-layer-group me-2"></i>Plan-Wise Churn
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="subscriptionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-venus-mars me-2"></i>Gender-Wise Churn
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let riskChartInstance = null;
+let subscriptionChartInstance = null;
+let genderChartInstance = null;
+
+async function loadAnalytics(companyId) {
+    const [riskData, subscriptionData, genderData] = await Promise.all([
+        fetch(`/api/analytics/risk-distribution?company_id=${companyId}`).then(r => r.json()),
+        fetch(`/api/analytics/churn-by-subscription?company_id=${companyId}`).then(r => r.json()),
+        fetch(`/api/analytics/churn-by-gender?company_id=${companyId}`).then(r => r.json())
+    ]);
+
+    if (riskChartInstance) riskChartInstance.destroy();
+    if (subscriptionChartInstance) subscriptionChartInstance.destroy();
+    if (genderChartInstance) genderChartInstance.destroy();
+
+    riskChartInstance = new Chart(document.getElementById('riskChart'), {
+        type: 'doughnut',
+        data: {
+            labels: riskData.map(item => item.category),
+            datasets: [{
+                data: riskData.map(item => item.count),
+                backgroundColor: ['#198754', '#0dcaf0', '#ffc107', '#dc3545']
+            }]
+        }
+    });
+
+    subscriptionChartInstance = new Chart(document.getElementById('subscriptionChart'), {
+        type: 'bar',
+        data: {
+            labels: subscriptionData.map(item => item.subscription),
+            datasets: [{
+                label: 'Avg churn %',
+                data: subscriptionData.map(item => item.rate),
+                backgroundColor: '#0d6efd'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    genderChartInstance = new Chart(document.getElementById('genderChart'), {
+        type: 'polarArea',
+        data: {
+            labels: genderData.map(item => item.gender),
+            datasets: [{
+                data: genderData.map(item => item.rate),
+                backgroundColor: ['#6610f2', '#fd7e14', '#20c997']
+            }]
+        }
+    });
+}
+
+const analyticsCompanySelect = document.getElementById('analyticsCompanySelect');
+if (analyticsCompanySelect && analyticsCompanySelect.value) {
+    loadAnalytics(analyticsCompanySelect.value);
+}
+
+analyticsCompanySelect?.addEventListener('change', function () {
+    const companyId = this.value;
+    if (!companyId) return;
+    window.location.href = `/analytics?company_id=${companyId}`;
+});
+</script>
+{% endblock %}

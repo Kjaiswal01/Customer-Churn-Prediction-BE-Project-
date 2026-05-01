@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}Retention Intelligence Platform{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <section class="hero-section hero-platform" data-aos="fade-down">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <p class="eyebrow mb-2">Stage 2 Platform Build</p>
+                    <h1 class="hero-title">Churn prediction se aage: full retention intelligence platform</h1>
+                    <p class="hero-subtitle">
+                        Multi-company analysis, database-backed customer history, risk detection, next-best-action,
+                        and ready retention offers in one deployable dashboard.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="workspace-panel">
+                        <div class="metric-label mb-2">Current Workspace</div>
+                        {% if overview.company %}
+                        <h4 class="mb-1">{{ overview.company.name }}</h4>
+                        <p class="text-muted mb-0">{{ overview.company.industry }}</p>
+                        {% else %}
+                        <h4 class="mb-1">No company selected</h4>
+                        <p class="text-muted mb-0">Upload a dataset to create a company workspace.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if model_error %}
+    <div class="alert alert-warning mt-4" role="alert">
+        <strong>Model warning:</strong> {{ model_error }}
+    </div>
+    {% endif %}
+
+    <div class="row mt-4">
+        <div class="col-md-3 mb-4">
+            <div class="metric-card">
+                <div class="metric-label">Companies</div>
+                <div class="metric-value">{{ summary.companies_count }}</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="metric-card warning">
+                <div class="metric-label">Customers Tracked</div>
+                <div class="metric-value">{{ summary.customers_count }}</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="metric-card danger">
+                <div class="metric-label">High Risk</div>
+                <div class="metric-value">{{ summary.high_risk_count }}</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="metric-card success">
+                <div class="metric-label">Open Retention Actions</div>
+                <div class="metric-value">{{ summary.open_actions }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-rocket me-2"></i>Unique Platform Additions
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="feature-tile">
+                                <h5>Company Workspaces</h5>
+                                <p class="text-muted mb-0">Separate workspace and stored customer intelligence for every telecom or subscription business.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-tile">
+                                <h5>Auto Retention Actions</h5>
+                                <p class="text-muted mb-0">The system generates offers, action types, and next-best steps for high-risk customers.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-tile">
+                                <h5>Reason-Based Analysis</h5>
+                                <p class="text-muted mb-0">Top churn reasons and practical intervention strategy alongside each prediction.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-tile">
+                                <h5>Stored History</h5>
+                                <p class="text-muted mb-0">Predictions, uploads, offers, and the retention queue are saved in the database.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="/customers{% if selected_company_id %}?company_id={{ selected_company_id }}{% endif %}" class="btn btn-primary me-2">Upload Company Dataset</a>
+                        <a href="/retention{% if selected_company_id %}?company_id={{ selected_company_id }}{% endif %}" class="btn btn-outline-primary">Open Retention Desk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-satellite-dish me-2"></i>Workspace Health
+                </div>
+                <div class="card-body">
+                    {% if overview.company %}
+                    <div class="mb-3">
+                        <div class="metric-label">Avg Churn Probability</div>
+                        <h2 class="mb-0">{{ overview.avg_churn_probability }}%</h2>
+                    </div>
+                    <div class="mb-3">
+                        <div class="metric-label">Avg Health Score</div>
+                        <h2 class="mb-0">{{ overview.avg_health_score }}</h2>
+                    </div>
+                    <div class="mb-3">
+                        <div class="metric-label">Critical Queue</div>
+                        <h2 class="mb-0">{{ overview.high_risk_count }}</h2>
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">Upload your first dataset to unlock company-specific health tracking.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-shield me-2"></i>Top Risk Customers
+                </div>
+                <div class="card-body">
+                    {% if top_customers %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Customer</th>
+                                    <th>Risk</th>
+                                    <th>Churn Prob.</th>
+                                    <th>Health</th>
+                                    <th>Offer</th>
+                                    <th>Next Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for customer in top_customers %}
+                                <tr>
+                                    <td>{{ customer.company_name }}</td>
+                                    <td>{{ customer.external_customer_id }}</td>
+                                    <td><span class="badge risk-badge risk-{{ customer.risk_category|lower }}">{{ customer.risk_category }}</span></td>
+                                    <td>{{ (customer.churn_probability * 100)|round(1) }}%</td>
+                                    <td>{{ customer.health_score|round(1) }}</td>
+                                    <td>{{ customer.offer_title }}</td>
+                                    <td>{{ customer.next_best_action }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">No stored customers yet. Start by uploading a real company dataset.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

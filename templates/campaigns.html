@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Campaign Studio{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="hero-section" data-aos="fade-down">
+        <h1 class="hero-title"><i class="fas fa-bullhorn me-3"></i>Campaign Studio</h1>
+        <p class="hero-subtitle">Turn retention actions into market-ready campaigns and offers.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-wand-magic-sparkles me-2"></i>Suggested Campaign Ideas
+                </div>
+                <div class="card-body">
+                    <div class="feature-tile mb-3">
+                        <h5>VIP Save Desk</h5>
+                        <p class="text-muted mb-0">Dedicated manager and instant discount recovery journey for critical customers.</p>
+                    </div>
+                    <div class="feature-tile mb-3">
+                        <h5>Silent Customer Revival</h5>
+                        <p class="text-muted mb-0">Usage booster and targeted engagement messages for inactive customers.</p>
+                    </div>
+                    <div class="feature-tile">
+                        <h5>Negative Sentiment Rescue</h5>
+                        <p class="text-muted mb-0">Service recovery campaign with credits for complaint-led customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-list-check me-2"></i>Campaign-Ready Customer Queue
+                </div>
+                <div class="card-body">
+                    {% if actions %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Customer</th>
+                                    <th>Priority</th>
+                                    <th>Offer</th>
+                                    <th>Campaign Theme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for action in actions %}
+                                <tr>
+                                    <td>{{ action.company_name }}</td>
+                                    <td>{{ action.external_customer_id }}</td>
+                                    <td><span class="badge risk-badge risk-{{ action.priority|lower }}">{{ action.priority }}</span></td>
+                                    <td>{{ action.offer_title }}</td>
+                                    <td>{{ action.action_type }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">No campaign queue yet. Generate retention actions first.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

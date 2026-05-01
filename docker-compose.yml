@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: retention_platform
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  api:
+    build: .
+    command: uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      USE_SQLITE_FALLBACK: "false"
+      DATABASE_URL: mysql+pymysql://root:root@mysql:3306/retention_platform
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+  dashboard:
+    build: .
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    environment:
+      USE_SQLITE_FALLBACK: "false"
+      DATABASE_URL: mysql+pymysql://root:root@mysql:3306/retention_platform
+    ports:
+      - "8501:8501"
+    depends_on:
+      - mysql
+      - api
+
+volumes:
+  mysql_data:

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+.env
+instance/*.db
+data/uploads/*
+!data/uploads/.gitkeep
+.streamlit/secrets.toml
+models/versions/*
+!models/versions/.gitkeep
