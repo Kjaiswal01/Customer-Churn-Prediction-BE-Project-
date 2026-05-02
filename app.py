@@ -248,9 +248,11 @@ if ENABLE_DEMO_MODE and not st.session_state.get("_bootstrap_done", False):
     session_for_bootstrap = get_session()
     try:
         bootstrap_demo_environment(session_for_bootstrap)
+    except Exception as exc:
+        logger.warning("Demo bootstrap skipped after startup issue: %s", exc)
     finally:
         session_for_bootstrap.close()
-    st.session_state["_bootstrap_done"] = True
+        st.session_state["_bootstrap_done"] = True
 
 
 def fetch_companies():

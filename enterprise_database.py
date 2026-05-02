@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Generator
 
 from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, JSON, String, Text, create_engine, event, inspect
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 from enterprise_config import DATABASE_FALLBACK_URL, DATABASE_URL, USE_SQLITE_FALLBACK
@@ -44,6 +44,11 @@ def build_engine():
 
 engine = build_engine()
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)
+
+
+def is_benign_sqlite_schema_error(exc: OperationalError) -> bool:
+    message = str(exc.orig).lower()
+    return "already exists" in message or "duplicate column name" in message
 
 
 class Company(Base):
@@ -200,7 +205,12 @@ class AuditLog(Base):
 
 
 def init_database() -> None:
-    Base.metadata.create_all(bind=engine)
+    try:
+        Base.metadata.create_all(bind=engine)
+    except OperationalError as exc:
+        if not is_benign_sqlite_schema_error(exc):
+            raise
+
     inspector = inspect(engine)
     table_migrations = {
         "retention_actions": {
@@ -228,7 +238,11 @@ def init_database() -> None:
             existing_columns = {column["name"] for column in inspector.get_columns(table_name)}
             for column_name, ddl in required_columns.items():
                 if column_name not in existing_columns:
-                    connection.exec_driver_sql(ddl)
+                    try:
+                        connection.exec_driver_sql(ddl)
+                    except OperationalError as exc:
+                        if not is_benign_sqlite_schema_error(exc):
+                            raise
 
 
 def get_session() -> Generator:

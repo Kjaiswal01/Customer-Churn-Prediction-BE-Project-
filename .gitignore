@@ -4,6 +4,7 @@ __pycache__/
 *.log
 .env
 instance/*.db
+instance/*.db-*
 data/uploads/*
 !data/uploads/.gitkeep
 .streamlit/secrets.toml
