@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Generator
 
-from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, JSON, String, Text, create_engine, inspect
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, JSON, String, Text, create_engine, event, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
@@ -12,15 +12,33 @@ from enterprise_config import DATABASE_FALLBACK_URL, DATABASE_URL, USE_SQLITE_FA
 Base = declarative_base()
 
 
+def create_database_engine(database_url: str):
+    engine_kwargs = {"pool_pre_ping": True, "future": True}
+    if database_url.startswith("sqlite"):
+        engine_kwargs["connect_args"] = {"check_same_thread": False, "timeout": 30}
+
+    database_engine = create_engine(database_url, **engine_kwargs)
+
+    if database_url.startswith("sqlite"):
+        @event.listens_for(database_engine, "connect")
+        def _set_sqlite_pragmas(dbapi_connection, _connection_record):
+            cursor = dbapi_connection.cursor()
+            cursor.execute("PRAGMA busy_timeout=30000")
+            cursor.execute("PRAGMA journal_mode=WAL")
+            cursor.close()
+
+    return database_engine
+
+
 def build_engine():
     primary_url = DATABASE_FALLBACK_URL if USE_SQLITE_FALLBACK else DATABASE_URL
     try:
-        engine = create_engine(primary_url, pool_pre_ping=True, future=True)
+        engine = create_database_engine(primary_url)
         with engine.connect() as connection:
             connection.exec_driver_sql("SELECT 1")
         return engine
     except SQLAlchemyError:
-        fallback_engine = create_engine(DATABASE_FALLBACK_URL, pool_pre_ping=True, future=True)
+        fallback_engine = create_database_engine(DATABASE_FALLBACK_URL)
         return fallback_engine
 
 

@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import json
 import logging
 import smtplib
+import threading
 from email.mime.text import MIMEText
 from pathlib import Path
 from uuid import uuid4
@@ -68,6 +69,7 @@ MODEL_SIGNAL_COLUMNS = [
 
 MIN_SIGNAL_COLUMNS_FOR_SCORING = 5
 MIN_SIGNAL_COLUMNS_FOR_TRAINING = 6
+_BOOTSTRAP_LOCK = threading.Lock()
 
 
 def ensure_company(session: Session, company_name: str, industry: str = "Telecom") -> Company:
@@ -545,7 +547,7 @@ def latest_training_upload(session: Session, company_id: int) -> DatasetUpload |
         session.query(DatasetUpload)
         .filter(DatasetUpload.company_id == company_id, DatasetUpload.dataset_role == "training")
         .order_by(DatasetUpload.created_at.desc())
-        .one_or_none()
+        .first()
     )
 
 
@@ -574,22 +576,24 @@ def resolve_artifacts_for_company(
     return None
 
 
-def ensure_artifacts_available() -> TrainingArtifacts | None:
+def ensure_artifacts_available(session: Session | None = None) -> TrainingArtifacts | None:
     artifacts = load_artifacts()
     if artifacts is not None:
         return artifacts
 
-    session = SessionLocal()
+    owns_session = session is None
+    session = session or SessionLocal()
     try:
         base_df = ensure_dataset_exists()
-        result = train_models_from_dataframe(session, "Demo Telecom", "Telecom", base_df, "customer_churn.csv")
+        train_models_from_dataframe(session, "Demo Telecom", "Telecom", base_df, "customer_churn.csv")
         artifacts = load_artifacts()
         return artifacts
     except Exception as exc:
         logger.warning("Unable to ensure artifacts automatically: %s", exc)
         return None
     finally:
-        session.close()
+        if owns_session:
+            session.close()
 
 
 def build_model_version(company_name: str) -> str:
@@ -1794,18 +1798,18 @@ def churn_by_dimension(session: Session, dimension: str, company_id: int | None 
 
 
 def bootstrap_demo_environment(session: Session) -> None:
-    demo_company = ensure_company(session, "Demo Telecom", "Telecom")
-    existing_records = session.query(CustomerRecord).filter(CustomerRecord.company_id == demo_company.id).count()
-    if existing_records > 0:
-        ensure_artifacts_available()
+    with _BOOTSTRAP_LOCK:
+        demo_company = ensure_company(session, "Demo Telecom", "Telecom")
+        existing_records = session.query(CustomerRecord).filter(CustomerRecord.company_id == demo_company.id).count()
+        if existing_records > 0:
+            ensure_company_operational_data(session, demo_company.id)
+            return
+
+        enriched = ensure_dataset_exists()
+
+        if ensure_artifacts_available(session) is None:
+            train_models_from_dataframe(session, demo_company.name, demo_company.industry, enriched, "customer_churn.csv")
+
+        score_dataframe_and_store(session, demo_company.id, enriched, "customer_churn.csv")
         ensure_company_operational_data(session, demo_company.id)
-        return
-
-    enriched = ensure_dataset_exists()
-
-    if ensure_artifacts_available() is None:
-        train_models_from_dataframe(session, demo_company.name, demo_company.industry, enriched, "customer_churn.csv")
-
-    score_dataframe_and_store(session, demo_company.id, enriched, "customer_churn.csv")
-    ensure_company_operational_data(session, demo_company.id)
 logger = logging.getLogger(__name__)
