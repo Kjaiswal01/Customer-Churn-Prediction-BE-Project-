@@ -19,6 +19,7 @@ MODEL_VERSION_DIR.mkdir(parents=True, exist_ok=True)
 APP_ENV = os.getenv("APP_ENV", "development")
 IS_PRODUCTION = APP_ENV.lower() == "production"
 ENABLE_DEMO_MODE = os.getenv("ENABLE_DEMO_MODE", "true" if not IS_PRODUCTION else "false").lower() == "true"
+BOOTSTRAP_DEMO_ON_STARTUP = os.getenv("BOOTSTRAP_DEMO_ON_STARTUP", "false").lower() == "true"
 SEED_DEFAULT_USERS = os.getenv("SEED_DEFAULT_USERS", "true" if not IS_PRODUCTION else "false").lower() == "true"
 MYSQL_HOST = os.getenv("MYSQL_HOST", "localhost")
 MYSQL_PORT = int(os.getenv("MYSQL_PORT", "3306"))

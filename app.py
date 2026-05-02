@@ -15,7 +15,7 @@ import streamlit as st
 
 from data_pipeline import classify_issue, ensure_dataset_exists, simple_sentiment_score
 from enterprise_auth import authenticate_user, create_access_token, create_user, decode_token, seed_default_user
-from enterprise_config import ENABLE_DEMO_MODE, IS_PRODUCTION, SEED_DEFAULT_USERS, USE_SQLITE_FALLBACK
+from enterprise_config import BOOTSTRAP_DEMO_ON_STARTUP, ENABLE_DEMO_MODE, IS_PRODUCTION, SEED_DEFAULT_USERS, USE_SQLITE_FALLBACK
 from enterprise_database import Company, CustomerRecord, DatasetUpload, RetentionAction, SessionLocal, init_database
 from enterprise_ml import (
     customer_value_score,
@@ -49,7 +49,7 @@ from enterprise_service import (
     infer_missing_business_signals,
 )
 
-MAX_DASHBOARD_ROWS = 2000
+MAX_DASHBOARD_ROWS = 750
 logger = logging.getLogger(__name__)
 
 ensure_dataset_exists()
@@ -244,7 +244,7 @@ def get_session():
     return SessionLocal()
 
 
-if ENABLE_DEMO_MODE and not st.session_state.get("_bootstrap_done", False):
+if BOOTSTRAP_DEMO_ON_STARTUP and ENABLE_DEMO_MODE and not st.session_state.get("_bootstrap_done", False):
     session_for_bootstrap = get_session()
     try:
         bootstrap_demo_environment(session_for_bootstrap)
@@ -924,6 +924,7 @@ DEMO_DATASETS = {
 }
 
 
+@st.cache_data(show_spinner=False)
 def load_demo_dataset(label: str) -> pd.DataFrame:
     path = DEMO_DATASETS.get(label, DEMO_DATASETS["Native Sample Dataset"])
     dataset = pd.read_csv(path)
@@ -1329,7 +1330,7 @@ with st.sidebar:
     )
 
 
-artifacts = get_cached_artifacts()
+artifacts = None
 selected_dataset_type, selected_dataset_value = dataset_option_map[active_dataset_label]
 active_dataset_upload = None
 if selected_dataset_type == "upload":
@@ -1358,7 +1359,7 @@ pages_requiring_dataset_analysis = {
     "Workflow Monitor",
     "Retention Command Center",
 }
-artifact_signature = getattr(artifacts, "model_version", "no-model") if artifacts is not None else "no-model"
+artifact_signature = "no-model"
 dashboard_sampled = False
 dashboard_seed_dataset = seeded_dataset.head(0).copy()
 dashboard_data = pd.DataFrame()
@@ -2004,9 +2005,11 @@ elif page == "Customer Predictor":
         unsafe_allow_html=True,
     )
 
+    artifacts = get_cached_artifacts()
     if artifacts is None:
-        st.warning("Train the platform first from Training Lab.")
-    else:
+        st.info("Fast prediction mode is active. Train a dataset in Training Lab to switch to model-scored predictions.")
+
+    with st.container():
         predictor_dataset = seeded_dataset.copy()
         sample_options = demo_customer_options(predictor_dataset)
         st.caption(

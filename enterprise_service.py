@@ -44,11 +44,15 @@ from enterprise_database import (
 )
 from enterprise_ml import (
     TrainingArtifacts,
+    customer_value_score,
     evaluate_models,
+    heuristic_churn_probability,
     load_artifacts,
     load_artifacts_from_path,
     load_dataset_from_upload,
+    personalized_offer,
     persist_artifacts,
+    retention_strategy,
     score_customers,
     validate_dataset,
 )
@@ -1219,11 +1223,28 @@ def score_dataframe_and_store(session: Session, company_id: int, df: pd.DataFram
 
 
 def predict_records(session: Session, records: list[dict]) -> list[dict]:
-    artifacts = ensure_artifacts_available()
-    if artifacts is None:
-        raise ValueError("No trained model found. Train the platform first.")
     df = pd.DataFrame(records)
-    scored = score_customers(df, artifacts)
+    artifacts = load_artifacts()
+    if artifacts is not None:
+        scored = score_customers(df, artifacts)
+    else:
+        scored = df.copy()
+        scored["churn_probability"] = scored.apply(lambda row: heuristic_churn_probability(row), axis=1).round(4)
+        scored["raw_model_probability"] = scored["churn_probability"]
+        scored["heuristic_probability"] = scored["churn_probability"]
+        scored["churn_prediction"] = scored["churn_probability"] >= 0.55
+        scored["customer_segment"] = np.where(
+            scored["churn_probability"] >= 0.8,
+            "Critical Churn",
+            np.where(scored["churn_probability"] >= 0.6, "High Attention", np.where(scored["churn_probability"] >= 0.35, "Growth Opportunity", "Loyal Base")),
+        )
+        scored["customer_value"] = scored.apply(customer_value_score, axis=1)
+        scored["retention_strategy"] = scored.apply(
+            lambda row: retention_strategy(row, float(row["churn_probability"]), float(row["customer_value"])),
+            axis=1,
+        )
+        scored["personalized_offer"] = scored.apply(lambda row: personalized_offer(row, float(row["churn_probability"])), axis=1)
+        scored["shap_explanation"] = [[] for _ in range(len(scored))]
     output = []
     for _, row in scored.iterrows():
         reason = build_reason_text(row, row["shap_explanation"])
