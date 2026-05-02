@@ -585,7 +585,7 @@ def ensure_artifacts_available() -> TrainingArtifacts | None:
         result = train_models_from_dataframe(session, "Demo Telecom", "Telecom", base_df, "customer_churn.csv")
         artifacts = load_artifacts()
         return artifacts
-    except (ValueError, OSError, RuntimeError) as exc:
+    except Exception as exc:
         logger.warning("Unable to ensure artifacts automatically: %s", exc)
         return None
     finally:
