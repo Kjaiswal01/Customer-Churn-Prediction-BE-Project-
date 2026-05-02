@@ -6,6 +6,7 @@ import joblib
 import logging
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from sklearn.base import clone
 from sklearn.cluster import KMeans
 from sklearn.compose import ColumnTransformer
@@ -56,6 +57,13 @@ ID_ALIASES = ["customer_id", "customerid", "subscriber_id", "account_id", "user_
 MAX_CARDINALITY_FOR_CATEGORICAL = 120
 MAX_CATEGORICAL_UNIQUENESS_RATIO = 0.4
 MAX_EXPLANATION_ROWS = 5000
+FAST_TRAINING_ROW_THRESHOLD = 5000
+ULTRA_FAST_TRAINING_ROW_THRESHOLD = 15000
+FAST_FEATURE_THRESHOLD = 40
+ULTRA_FAST_FEATURE_THRESHOLD = 80
+MAX_MODEL_SELECTION_ROWS_FAST = 8000
+MAX_MODEL_SELECTION_ROWS_ULTRA_FAST = 5000
+MAX_CLUSTER_ROWS = 12000
 
 
 @dataclass
@@ -261,17 +269,21 @@ def build_preprocessor(X: pd.DataFrame) -> tuple[ColumnTransformer, list[str], l
     return preprocessor, numeric_features, categorical_features
 
 
-def candidate_models():
+def candidate_models(training_profile: str = "balanced"):
+    logistic_max_iter = 1500 if training_profile == "balanced" else 900 if training_profile == "fast" else 650
     models = {
-        "logistic_regression": LogisticRegression(max_iter=1500, class_weight="balanced"),
-        "random_forest": RandomForestClassifier(
-            n_estimators=300,
+        "logistic_regression": LogisticRegression(max_iter=logistic_max_iter, class_weight="balanced"),
+    }
+    if training_profile != "ultra_fast":
+        forest_estimators = 300 if training_profile == "balanced" else 140
+        models["random_forest"] = RandomForestClassifier(
+            n_estimators=forest_estimators,
             min_samples_leaf=2,
             random_state=42,
             class_weight="balanced_subsample",
-        ),
-    }
-    if XGBClassifier is not None:
+            n_jobs=-1,
+        )
+    if XGBClassifier is not None and training_profile == "balanced":
         models["xgboost"] = XGBClassifier(
             n_estimators=300,
             max_depth=4,
@@ -282,6 +294,27 @@ def candidate_models():
             random_state=42,
         )
     return models
+
+
+def sample_rows_for_model_selection(X: pd.DataFrame, y: pd.Series, max_rows: int | None) -> tuple[pd.DataFrame, pd.Series]:
+    if not max_rows or len(X) <= max_rows:
+        return X, y
+    X_sample, _, y_sample, _ = train_test_split(
+        X,
+        y,
+        train_size=max_rows,
+        random_state=42,
+        stratify=y if y.nunique() > 1 else None,
+    )
+    return X_sample, y_sample
+
+
+def training_profile_for_dataset(row_count: int, feature_count: int) -> tuple[str, int, int | None]:
+    if row_count >= ULTRA_FAST_TRAINING_ROW_THRESHOLD or feature_count >= ULTRA_FAST_FEATURE_THRESHOLD:
+        return "ultra_fast", 3, MAX_MODEL_SELECTION_ROWS_ULTRA_FAST
+    if row_count >= FAST_TRAINING_ROW_THRESHOLD or feature_count >= FAST_FEATURE_THRESHOLD:
+        return "fast", 3, MAX_MODEL_SELECTION_ROWS_FAST
+    return "balanced", 5, None
 
 
 def ensure_2d_array(matrix) -> np.ndarray:
@@ -373,6 +406,7 @@ def evaluate_models(df: pd.DataFrame, target_column: str) -> tuple[TrainingArtif
     dataset[target_column] = dataset[target_column].apply(normalize_target)
     X, dropped_columns = build_feature_frame(dataset.drop(columns=[target_column]))
     y = dataset[target_column]
+    training_profile, requested_cv_splits, selection_cap = training_profile_for_dataset(len(dataset), X.shape[1])
 
     preprocessor, _, _ = build_preprocessor(X)
     X_train_full, X_test, y_train_full, y_test = train_test_split(
@@ -387,14 +421,17 @@ def evaluate_models(df: pd.DataFrame, target_column: str) -> tuple[TrainingArtif
     )
 
     model_scores = {}
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    X_selection, y_selection = sample_rows_for_model_selection(X_train_full, y_train_full, selection_cap)
+    min_class_count = int(y_selection.value_counts().min()) if y_selection.nunique() > 1 else 0
+    cv_splits = max(2, min(requested_cv_splits, min_class_count)) if min_class_count >= 2 else 2
+    cv = StratifiedKFold(n_splits=cv_splits, shuffle=True, random_state=42)
 
-    for model_name, model in candidate_models().items():
+    for model_name, model in candidate_models(training_profile).items():
         pipeline = Pipeline(steps=[("preprocessor", clone(preprocessor)), ("model", model)])
         cv_scores = cross_validate(
             pipeline,
-            X_train_full,
-            y_train_full,
+            X_selection,
+            y_selection,
             cv=cv,
             scoring={
                 "accuracy": "accuracy",
@@ -422,12 +459,14 @@ def evaluate_models(df: pd.DataFrame, target_column: str) -> tuple[TrainingArtif
             "validation_roc_auc": validation_summary.get("roc_auc", 0.0),
             "validation_average_precision": validation_summary.get("average_precision", 0.0),
             "decision_threshold": decision_threshold,
+            "training_profile": training_profile,
+            "cv_folds": cv_splits,
         }
     best_model_name = max(
         model_scores,
         key=lambda name: (model_scores[name]["validation_f1_score"], model_scores[name]["validation_roc_auc"]),
     )
-    best_model = candidate_models()[best_model_name]
+    best_model = candidate_models(training_profile)[best_model_name]
     best_pipeline = Pipeline(steps=[("preprocessor", clone(preprocessor)), ("model", best_model)])
     best_pipeline.fit(X_train_full, y_train_full)
     fitted_preprocessor = best_pipeline.named_steps["preprocessor"]
@@ -443,7 +482,12 @@ def evaluate_models(df: pd.DataFrame, target_column: str) -> tuple[TrainingArtif
 
     cluster_input = build_cluster_frame(X, churn_probabilities)
     cluster_model = KMeans(n_clusters=4, n_init=10, random_state=42)
-    clusters = cluster_model.fit_predict(cluster_input)
+    if len(cluster_input) > MAX_CLUSTER_ROWS:
+        cluster_sample = cluster_input.sample(n=MAX_CLUSTER_ROWS, random_state=42)
+        cluster_model.fit(cluster_sample)
+        clusters = cluster_model.predict(cluster_input)
+    else:
+        clusters = cluster_model.fit_predict(cluster_input)
     cluster_labels = label_clusters(churn_probabilities, clusters)
 
     dataset["predicted_churn_probability"] = churn_probabilities
@@ -464,9 +508,13 @@ def evaluate_models(df: pd.DataFrame, target_column: str) -> tuple[TrainingArtif
         dropped_columns=dropped_columns,
         evaluation_summary={
             "dataset_rows": int(len(dataset)),
+            "feature_count": int(X.shape[1]),
             "churn_rate": round(float(y.mean()), 4),
             "validation_rows": int(len(X_valid)),
             "test_rows": int(len(X_test)),
+            "training_profile": training_profile,
+            "model_selection_rows": int(len(X_selection)),
+            "cv_folds": int(cv_splits),
             "test_summary": test_summary,
         },
     )
@@ -492,25 +540,31 @@ def persist_artifacts(artifacts: TrainingArtifacts) -> None:
     joblib.dump(artifacts, ARTIFACT_PATH)
 
 
-def load_artifacts() -> TrainingArtifacts | None:
-    if ARTIFACT_PATH.exists():
+def safe_load_artifact_file(path) -> TrainingArtifacts | None:
+    artifact_path = Path(path)
+    if not artifact_path.exists():
+        return None
+    try:
+        return sanitize_training_artifacts(joblib.load(artifact_path))
+    except Exception as exc:  # pragma: no cover - compatibility failures depend on runtime version
+        logger.warning("Failed to load artifacts from %s due to incompatible or corrupt file: %s", artifact_path, exc)
         try:
-            return sanitize_training_artifacts(joblib.load(ARTIFACT_PATH))
-        except (OSError, ValueError, TypeError) as exc:
-            logger.warning("Failed to load default artifacts from %s: %s", ARTIFACT_PATH, exc)
-            return None
-    return None
+            artifact_path.unlink(missing_ok=True)
+            logger.warning("Removed incompatible artifact file: %s", artifact_path)
+        except OSError as delete_exc:
+            logger.warning("Could not remove incompatible artifact file %s: %s", artifact_path, delete_exc)
+        return None
+
+
+def load_artifacts() -> TrainingArtifacts | None:
+    return safe_load_artifact_file(ARTIFACT_PATH)
 
 
 def load_artifacts_from_path(path) -> TrainingArtifacts | None:
-    try:
-        artifact_path = str(path)
-        if not artifact_path:
-            return None
-        return sanitize_training_artifacts(joblib.load(artifact_path))
-    except (OSError, ValueError, TypeError) as exc:
-        logger.warning("Failed to load artifacts from %s: %s", path, exc)
+    artifact_path = str(path)
+    if not artifact_path:
         return None
+    return safe_load_artifact_file(artifact_path)
 
 
 def transform_features(df: pd.DataFrame, artifacts: TrainingArtifacts):

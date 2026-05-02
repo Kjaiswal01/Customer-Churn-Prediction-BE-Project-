@@ -44,12 +44,12 @@ from enterprise_service import (
     score_dataset_and_store,
     send_retention_emails_for_company,
     simulate_business_impact,
-    train_models_from_upload,
+    train_models_from_dataframe,
     workflow_overview,
     infer_missing_business_signals,
 )
 
-MAX_DASHBOARD_ROWS = 5000
+MAX_DASHBOARD_ROWS = 2000
 logger = logging.getLogger(__name__)
 
 ensure_dataset_exists()
@@ -1351,7 +1351,6 @@ pages_requiring_dataset_analysis = {
     "Executive Dashboard",
     "Dataset Intelligence",
     "Customer Insights",
-    "Customer Predictor",
     "Action Center",
     "NLP Insights",
     "Workflow Monitor",
@@ -1859,6 +1858,7 @@ elif page == "Training Lab":
             <p style="margin:0.7rem 0 0 0;">
                 Upload a labeled churn dataset to train a stronger churn model with automatic preprocessing,
                 leakage-safe feature selection, cross-validation, validation-based threshold tuning, and holdout testing.
+                Large datasets now automatically use a faster training profile so results come sooner.
             </p>
         </div>
         """,
@@ -1878,10 +1878,26 @@ elif page == "Training Lab":
         else:
             session = get_session()
             try:
-                with st.spinner("Training models and selecting the best one..."):
-                    result = train_models_from_upload(session, company_name, industry, training_file, uploaded_by_email=current_user_email)
+                raw_training_df = load_dataset_from_upload(training_file)
+                with st.spinner("Training models with adaptive fast mode and selecting the best profile..."):
+                    result = train_models_from_dataframe(
+                        session,
+                        company_name,
+                        industry,
+                        raw_training_df,
+                        source_name=getattr(training_file, "name", "training_dataset.csv"),
+                        uploaded_by_email=current_user_email,
+                    )
                 st.success(f"Best model: {result['best_model']}")
                 st.caption(f"Model version: {result.get('model_version', 'n/a')}")
+                evaluation_summary = result.get("evaluation_summary", {})
+                if evaluation_summary:
+                    st.info(
+                        "Training profile: "
+                        f"{evaluation_summary.get('training_profile', 'balanced')} | "
+                        f"Rows used for model selection: {evaluation_summary.get('model_selection_rows', 0):,} | "
+                        f"CV folds: {evaluation_summary.get('cv_folds', 0)}"
+                    )
                 st.success("Training dataset has been saved and will appear in the dataset picker for this logged-in user.")
                 metrics_df = pd.DataFrame(result["metrics"]).T.reset_index().rename(columns={"index": "Model"})
                 st.dataframe(metrics_df, use_container_width=True, hide_index=True)
@@ -1909,12 +1925,11 @@ elif page == "Training Lab":
                 st.subheader("Training Preview")
                 st.dataframe(pd.DataFrame(result["preview"]), use_container_width=True, hide_index=True)
                 if auto_score_after_training:
-                    with st.spinner("Scoring the same trained dataset for immediate dashboard analysis..."):
-                        trained_df = load_dataset_from_upload(training_file)
+                    with st.spinner("Scoring the same in-memory dataset for immediate dashboard analysis..."):
                         score_result = score_dataframe_and_store(
                             session,
                             result["company_id"],
-                            trained_df,
+                            raw_training_df,
                             source_name=getattr(training_file, "name", "trained_dataset.csv"),
                             uploaded_by_email=current_user_email,
                         )

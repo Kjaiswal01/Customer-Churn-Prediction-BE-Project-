@@ -93,6 +93,14 @@ def save_upload_locally(uploaded_file) -> Path:
     return destination
 
 
+def save_dataframe_snapshot(df: pd.DataFrame, source_name: str) -> Path:
+    safe_name = Path(source_name or "dataset.csv").name
+    stem = Path(safe_name).stem or "dataset"
+    destination = UPLOAD_DIR / f"{datetime.utcnow().strftime('%Y%m%d%H%M%S')}_{stem}.csv"
+    df.to_csv(destination, index=False)
+    return destination
+
+
 def load_dataset_from_path(file_path: Path) -> pd.DataFrame:
     if file_path.suffix.lower() in {".xlsx", ".xls"}:
         return pd.read_excel(file_path)
@@ -719,12 +727,13 @@ def train_models_from_dataframe(session: Session, company_name: str, industry: s
     artifacts.model_version = model_version
     artifacts.schema_profile = schema_mapping
     versioned_path = persist_versioned_artifacts(artifacts)
+    stored_path = save_dataframe_snapshot(df, source_name)
 
     upload = DatasetUpload(
         company_id=company.id,
         filename=source_name,
         uploaded_by_email=uploaded_by_email,
-        stored_path=str(DATA_DIR / source_name),
+        stored_path=str(stored_path),
         row_count=len(enriched),
         dataset_role="training",
         model_version=model_version,
@@ -1094,12 +1103,13 @@ def score_dataframe_and_store(session: Session, company_id: int, df: pd.DataFram
     validate_dataset_readiness(schema_mapping, require_target=False)
     validation = validate_dataset(enriched, require_target=False)
     scored = score_customers(enriched, artifacts)
+    stored_path = save_dataframe_snapshot(df, source_name)
 
     upload = DatasetUpload(
         company_id=company.id,
         filename=source_name,
         uploaded_by_email=uploaded_by_email,
-        stored_path=str(DATA_DIR / source_name),
+        stored_path=str(stored_path),
         row_count=len(scored),
         dataset_role="scoring",
         model_version=getattr(artifacts, "model_version", None),
