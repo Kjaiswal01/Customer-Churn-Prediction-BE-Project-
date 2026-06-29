@@ -15,6 +15,7 @@ REQUIRED_MODULES = (
     "numpy",
     "openpyxl",
     "pandas",
+    "pg8000",
     "plotly",
     "pymysql",
     "seaborn",

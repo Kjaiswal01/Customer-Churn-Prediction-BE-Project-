@@ -26,10 +26,24 @@ MYSQL_PORT = int(os.getenv("MYSQL_PORT", "3306"))
 MYSQL_DB = os.getenv("MYSQL_DB", "retention_platform")
 MYSQL_USER = os.getenv("MYSQL_USER", "root")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD", "")
-DATABASE_URL = os.getenv(
+
+
+def _normalize_database_url(url: str) -> str:
+    if url.startswith("postgres://"):
+        return "postgresql+pg8000://" + url.removeprefix("postgres://")
+    if url.startswith("postgresql://") and "+" not in url.split("://", 1)[0]:
+        return "postgresql+pg8000://" + url.removeprefix("postgresql://")
+    if url.startswith("postgresql+psycopg://"):
+        return "postgresql+pg8000://" + url.removeprefix("postgresql+psycopg://")
+    if url.startswith("postgresql+psycopg2://"):
+        return "postgresql+pg8000://" + url.removeprefix("postgresql+psycopg2://")
+    return url
+
+
+DATABASE_URL = _normalize_database_url(os.getenv(
     "DATABASE_URL",
     f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}",
-)
+))
 DATABASE_FALLBACK_URL = os.getenv(
     "DATABASE_FALLBACK_URL",
     f"sqlite:///{(INSTANCE_DIR / 'retention_platform.db').as_posix()}",
