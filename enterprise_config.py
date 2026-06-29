@@ -62,8 +62,14 @@ API_PORT = int(os.getenv("API_PORT", "8000"))
 STREAMLIT_PORT = int(os.getenv("STREAMLIT_PORT", "8501"))
 
 ARTIFACT_PATH = MODEL_DIR / "enterprise_artifacts.joblib"
+JWT_EXPIRE_HOURS = int(os.getenv("JWT_EXPIRE_HOURS", str(24 * 365 * 10)))
 JWT_SECRET = os.getenv("JWT_SECRET", "")
 if not JWT_SECRET:
     if IS_PRODUCTION:
         raise RuntimeError("JWT_SECRET environment variable is required in production.")
-    JWT_SECRET = secrets.token_urlsafe(32)
+    JWT_SECRET_PATH = INSTANCE_DIR / "jwt_secret.key"
+    if JWT_SECRET_PATH.exists():
+        JWT_SECRET = JWT_SECRET_PATH.read_text(encoding="utf-8").strip()
+    else:
+        JWT_SECRET = secrets.token_urlsafe(32)
+        JWT_SECRET_PATH.write_text(JWT_SECRET, encoding="utf-8")

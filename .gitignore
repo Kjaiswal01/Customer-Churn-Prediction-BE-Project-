@@ -5,6 +5,7 @@ __pycache__/
 .env
 instance/*.db
 instance/*.db-*
+instance/*.key
 data/uploads/*
 !data/uploads/.gitkeep
 .streamlit/secrets.toml

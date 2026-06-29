@@ -9,10 +9,8 @@ import os
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from enterprise_config import JWT_SECRET, SEED_DEFAULT_USERS
+from enterprise_config import JWT_EXPIRE_HOURS, JWT_SECRET, SEED_DEFAULT_USERS
 from enterprise_database import SessionLocal, User, init_database
-
-JWT_EXPIRE_HOURS = 12
 
 
 def _b64encode(data: bytes) -> str:
